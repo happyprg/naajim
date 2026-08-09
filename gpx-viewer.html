@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GPX 파일 보는 법 — 경로·고도·오르막을 한눈에</title>
+<meta name="description" content="받아 둔 .gpx가 어떤 길인지, 얼마나 오르는지, 내가 갈 수 있는 코스인지 확인하는 방법. 업로드 없이 지도·고도 프로필·오르막 등급을 보고, 완주 가능성과 쉴 자리까지 계산해 볼 수 있습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naajim">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="GPX 파일 보는 법 — 경로·고도·오르막을 한눈에">
+<meta property="og:description" content="받아 둔 .gpx가 어떤 길인지, 얼마나 오르는지, 내가 갈 수 있는 코스인지 확인하는 방법. 업로드 없이 지도·고도 프로필·오르막 등급을 보고, 완주 가능성과 쉴 자리까지 계산해 볼 수 있습니다.">
+<meta property="og:url" content="https://happyprg.github.io/naajim/gpx-viewer.html">
+<meta property="og:image" content="https://happyprg.github.io/naajim/og.png">
+<meta property="og:image:alt" content="Naajim Preview">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GPX 파일 보는 법 — 경로·고도·오르막을 한눈에">
+<meta name="twitter:description" content="받아 둔 .gpx가 어떤 길인지, 얼마나 오르는지, 내가 갈 수 있는 코스인지 확인하는 방법. 업로드 없이 지도·고도 프로필·오르막 등급을 보고, 완주 가능성과 쉴 자리까지 계산해 볼 수 있습니다.">
+<meta name="twitter:image" content="https://happyprg.github.io/naajim/og.png">
+<meta name="twitter:image:alt" content="Naajim Preview">
+<link rel="canonical" href="https://happyprg.github.io/naajim/gpx-viewer.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"GPX 파일에는 무엇이 들어 있나요?","acceptedAnswer":{"@type":"Answer","text":"보통 위치·고도·시각입니다. 실제로 다녀온 기록(트랙)과 앞으로 갈 코스(루트)가 구분되고, 심박·파워는 표준에 없어 있더라도 확장 태그로 들어갑니다."}},{"@type":"Question","name":"고도가 이상하게 나옵니다","acceptedAnswer":{"@type":"Answer","text":"GPS 고도는 오차가 큽니다. 기압계 없는 폰으로 기록한 파일은 획득고도가 부풀려집니다. 고도를 평활화해 계산하지만 원본이 튀면 한계가 있습니다."}},{"@type":"Question","name":"코스를 사이컴에 넣고 싶어요","acceptedAnswer":{"@type":"Answer","text":"계획을 세운 뒤 GPX나 가민 코스(FIT)로 내보내면 됩니다. FIT 코스로 넣으면 기기가 다음 휴식 지점까지 남은 거리를 띄웁니다."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Naajim","applicationCategory":"SportsApplication","operatingSystem":"Web Browser (Desktop & Mobile)","url":"https://happyprg.github.io/naajim/gpx-viewer.html","description":"받아 둔 .gpx가 어떤 길인지, 얼마나 오르는지, 내가 갈 수 있는 코스인지 확인하는 방법. 업로드 없이 지도·고도 프로필·오르막 등급을 보고, 완주 가능성과 쉴 자리까지 계산해 볼 수 있습니다.","inLanguage":"ko","screenshot":["https://happyprg.github.io/naajim/og.png","https://happyprg.github.io/naajim/shot-report.png"],"featureList":["가민·와후 FIT/GPX 3초 브라우저 로컬 분석","100% 비공개 — 파일 서버 업로드 0Byte","입체 3D 경로 스토리 영상 자동 생성","NP · IF · TSS 및 오르막 등급(HC~4급) 자동 계산","AI 라이딩 코치 (키 없이 프롬프트 복사 / 내 API 키)","라이더 RPG 캐릭터 레벨 · XP · 잔디 · 도전과제","완주 가능성 및 휴식/보급 라이딩 계획서"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"128","bestRating":"5"},"offers":[{"@type":"Offer","name":"영원히 무료","price":"0","priceCurrency":"USD","description":"FIT/GPX 분석 및 저장 무제한, 3D 영상, 잔디, 도전과제"},{"@type":"Offer","name":"Pro 월간","price":"1900","priceCurrency":"KRW","description":"훈련 부하 CTL/ATL/TSB, 자전거 무제한, 부품 교체 알림, AI 코치 키 연결"},{"@type":"Offer","name":"Pro 연간","price":"14900","priceCurrency":"KRW","description":"연간 결제 (2개월 무료)"},{"@type":"Offer","name":"Pro 평생 소장","price":"39900","priceCurrency":"KRW","description":"1회 결제 평생 소장 라이선스"}]}</script>
+</head>
+<body>
+<style>
+:root{--bg:#0b0d11;--panel:#12151c;--panel2:#171b24;--edge:#232a36;--ink:#e8ebf2;--ink2:#a7adba;--muted:#79808f;--amber:#f0a63a}
+@media(prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--panel2:#f1f3f7;--edge:#dfe3ea;--ink:#1a1d23;--ink2:#4a5060;--muted:#6b7280}}
+body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0}
+.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px}
+.guide .crumb{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.guide .crumb a{color:var(--ink2)}
+.guide h1{font-size:clamp(25px,4.4vw,34px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px;text-wrap:balance}
+.guide h2{font-size:clamp(19px,2.6vw,23px);line-height:1.3;letter-spacing:-.02em;margin:38px 0 10px}
+.guide h3{font-size:17px;margin:22px 0 6px}
+.guide p{margin:0 0 14px}
+.guide .lead{font-size:17.5px;color:var(--ink2)}
+.guide ul,.guide ol{margin:0 0 16px;padding-left:22px}
+.guide li{margin:0 0 7px}
+.guide code{background:var(--panel2);border:1px solid var(--edge);border-radius:5px;padding:1px 5px;font-size:14.5px}
+.guide pre{background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:12px 14px;overflow-x:auto;margin:0 0 16px}
+.guide pre code{background:none;border:none;padding:0;font-size:13.5px}
+.guide a{color:var(--amber)}
+.guide .tip{background:var(--panel2);border:1px solid var(--edge);border-left:3px solid var(--amber);border-radius:9px;padding:12px 14px;font-size:15px;color:var(--ink2)}
+.guide .tw{overflow-x:auto;margin:0 0 18px}
+.guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:min(100%,420px)}
+.guide th,.guide td{border-bottom:1px solid var(--edge);padding:9px 10px;text-align:left;vertical-align:top}
+.guide th{font-size:13.5px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+.guide .col-rl{color:var(--amber)}
+.guide td.yes{color:#5cc98b}.guide td.no{color:#e0556b}
+.guide .faq h3{margin-top:18px}
+.guide .cta-box{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:18px 18px 16px;margin:26px 0}
+.guide .cta-box b{display:block;font-size:17px;margin-bottom:6px}
+.guide .cta-box p{font-size:15px;color:var(--ink2)}
+.guide .btn{display:inline-block;background:var(--panel2);border:1px solid var(--edge);color:var(--ink);
+  border-radius:999px;padding:11px 20px;font-size:15.5px;font-weight:700;text-decoration:none;margin:4px 6px 0 0;min-height:44px;box-sizing:border-box}
+.guide .btn.hot{background:linear-gradient(180deg,#ffc55c,#e8821a);border-color:transparent;color:#1a1206}
+.guide .also{margin-top:40px;padding-top:18px;border-top:1px solid var(--edge);font-size:14.5px;color:var(--muted)}
+</style>
+<article class="guide">
+  <p class="crumb"><a href="./">Naajim</a> · 안내</p>
+  <h1>GPX 파일 보는 법 — 경로와 고도를 브라우저에서 바로</h1>
+  <p class="lead">받아 둔 <code>.gpx</code>가 어떤 길인지, 얼마나 오르는지 궁금할 때가 있습니다.
+  코스를 받았는데 탈 만한지 모를 때도요. 지도에 올리고 고도 프로필까지 보는 가장 빠른 방법입니다.</p>
+
+  <div class="cta-box">
+    <b>바로 열어보기</b>
+    <p>파일을 끌어다 놓으면 지도 위 경로, 고도 프로필, 오르막 구간, 예상 소요 시간이 나옵니다.
+    가입도 설치도 없고 <b>파일은 이 기기 안에서만 읽힙니다</b>.</p>
+    <a class="btn hot" href="./app.html">.gpx 파일 열기 (무료)</a>
+    <a class="btn" href="./app.html#demo">파일 없이 예시부터</a>
+  </div>
+
+  <h2>GPX에 뭐가 들어 있나</h2>
+  <p><code>.gpx</code>는 사람이 읽을 수 있는 XML입니다. 메모장으로 열면 이런 좌표가 줄줄이 보입니다.</p>
+  <pre><code>&lt;trkpt lat="37.5401" lon="127.0301"&gt;&lt;ele="42.1"&gt;&lt;/trkpt&gt;</code></pre>
+  <p>보통 <b>위치·고도·시각</b>이 들어 있습니다. 두 종류가 섞여 쓰이니 구분하면 편합니다.</p>
+  <ul>
+    <li><b>트랙(track)</b> — 실제로 다녀온 기록. 1초 단위로 촘촘합니다. 시각이 있습니다.</li>
+    <li><b>루트(route)</b> — 앞으로 갈 코스. 점이 드물고 시각이 없을 수 있습니다.</li>
+  </ul>
+  <p>심박·파워는 표준에 없어서, 있더라도 확장 태그로 들어갑니다. 원본이 가민 <code>.fit</code>이라면
+  <a href="./fit-viewer.html">그 파일을 직접 여는 편</a>이 훨씬 많이 보입니다.</p>
+
+  <h2>보고 나서 알 수 있는 것</h2>
+  <div class="tw"><table>
+    <tr><th>궁금한 것</th><th>어디서 보는지</th></tr>
+    <tr><td>어떤 길인가</td><td>지도 위 경로 (배경 지도와 함께)</td></tr>
+    <tr><td>얼마나 오르나</td><td>획득고도 · 고도 프로필</td></tr>
+    <tr><td>어디가 힘든가</td><td>오르막 자동 분해 (HC~4급 등급, 평균 경사)</td></tr>
+    <tr><td>내가 갈 수 있나</td><td>라이딩 계획 — 내 지난 기록과 견줘 4단계 판정</td></tr>
+    <tr><td>몇 시에 돌아오나</td><td>예상 이동 시간 · 도착 시각 · 일몰 여유</td></tr>
+    <tr><td>어디서 쉬나</td><td>휴식 지점마다 실제 편의점·음수대·화장실</td></tr>
+  </table></div>
+  <p class="tip">💡 코스 GPX를 받았다면 <b>라이딩 계획</b>에 넣어 보세요. 남의 평균이 아니라
+  <b>내 보관함 기록으로 배운 나의 페이스</b>로 계산해서 "충분 / 도전 / 한계 / 아직 무리"를 알려 줍니다.</p>
+
+  <h2>다른 방법들</h2>
+  <div class="tw"><table>
+    <tr><th>방법</th><th>업로드</th><th>고도·오르막</th><th>내 능력 기준 판정</th></tr>
+    <tr><td><b>Naajim</b></td><td class="yes">없음</td><td class="yes">있음</td><td class="yes">있음</td></tr>
+    <tr><td>구글 지도 (내 지도)</td><td class="no">필요</td><td class="no">없음</td><td class="no">없음</td></tr>
+    <tr><td>온라인 GPX 뷰어</td><td class="no">필요</td><td>사이트마다</td><td class="no">없음</td></tr>
+    <tr><td>스트라바 (코스 업로드)</td><td class="no">필요</td><td class="yes">있음</td><td class="no">없음</td></tr>
+    <tr><td>가민 커넥트</td><td class="no">필요</td><td class="yes">있음</td><td class="no">없음</td></tr>
+  </table></div>
+
+  <h2>자주 묻는 것</h2>
+  <div class="faq">
+    <h3>파일이 서버로 올라가나요?</h3>
+    <p>아니요. 파싱·계산·지도 표시가 전부 브라우저 안에서 돕니다. F12의 네트워크 탭을 켜 놓고
+    넣어 보시면 업로드 요청이 없습니다. 배경 지도 타일만 지도 서버에서 받아옵니다.</p>
+    <h3>고도가 이상하게 나옵니다</h3>
+    <p>GPS 고도는 오차가 큽니다. 특히 기압계 없는 폰으로 기록한 파일은 획득고도가 부풀려집니다.
+    Naajim는 고도를 평활화해 계산하지만, 원본이 튀면 한계가 있습니다.</p>
+    <h3>여러 GPX를 겹쳐 볼 수 있나요?</h3>
+    <p>보관함에 저장한 라이딩끼리는 겹쳐 비교할 수 있습니다(같은 코스의 이번·지난번 비교 등).</p>
+    <h3>코스를 사이컴에 넣고 싶어요</h3>
+    <p>계획을 세운 뒤 <b>GPX</b>나 <b>가민 코스(FIT)</b>로 내보내면 됩니다.
+    FIT 코스로 넣으면 기기가 다음 휴식 지점까지 남은 거리를 띄워 줍니다.</p>
+  </div>
+
+  <div class="cta-box">
+    <b>그 파일, 어떤 길인지 지금 확인하세요</b>
+    <a class="btn hot" href="./app.html">.gpx 열기</a>
+  </div>
+
+  <p class="also">함께 보기 ·
+    <a href="./fit-viewer.html">.fit 파일 여는 법</a> ·
+    <a href="./fit-to-gpx.html">FIT을 GPX로 바꾸기</a> ·
+    <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
+  </p>
+</article>
+
+</body>
+</html>

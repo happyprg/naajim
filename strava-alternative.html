@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스트라바 없이 라이딩 기록 분석하기 — 가입도 업로드도 없이</title>
+<meta name="description" content="계정을 만들지 않고, 파일을 올리지 않고 라이딩을 분석하는 방법. 내 숫자로 답하는 AI 코치와, 탈 때가 되면 먼저 말을 걸어 주는 비서가 함께합니다. 스트라바와 겹치는 것과 다른 것, 무엇이 서버로 나가는지도 그대로 밝혔습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naajim">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="스트라바 없이 라이딩 기록 분석하기 — 가입도 업로드도 없이">
+<meta property="og:description" content="계정을 만들지 않고, 파일을 올리지 않고 라이딩을 분석하는 방법. 내 숫자로 답하는 AI 코치와, 탈 때가 되면 먼저 말을 걸어 주는 비서가 함께합니다. 스트라바와 겹치는 것과 다른 것, 무엇이 서버로 나가는지도 그대로 밝혔습니다.">
+<meta property="og:url" content="https://happyprg.github.io/naajim/strava-alternative.html">
+<meta property="og:image" content="https://happyprg.github.io/naajim/og.png">
+<meta property="og:image:alt" content="Naajim Preview">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="스트라바 없이 라이딩 기록 분석하기 — 가입도 업로드도 없이">
+<meta name="twitter:description" content="계정을 만들지 않고, 파일을 올리지 않고 라이딩을 분석하는 방법. 내 숫자로 답하는 AI 코치와, 탈 때가 되면 먼저 말을 걸어 주는 비서가 함께합니다. 스트라바와 겹치는 것과 다른 것, 무엇이 서버로 나가는지도 그대로 밝혔습니다.">
+<meta name="twitter:image" content="https://happyprg.github.io/naajim/og.png">
+<meta name="twitter:image:alt" content="Naajim Preview">
+<link rel="canonical" href="https://happyprg.github.io/naajim/strava-alternative.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"스트라바에서 원본 파일을 어떻게 꺼내나요?","acceptedAnswer":{"@type":"Answer","text":"활동 페이지에서 … → 원본 내보내기를 누르면 업로드했던 원본이 그대로 내려옵니다. 가민에서 올린 것이면 .fit이 받아집니다. GPX 내보내기는 심박·파워가 빠진 경로만 받습니다."}},{"@type":"Question","name":"정말 무료인가요? 왜 무료인가요?","acceptedAnswer":{"@type":"Answer","text":"분석이 사용자 기기에서 돌고, 영상도 브라우저가 만들고, AI 코치도 사용자 키로 브라우저에서 직접 갑니다. 사용자가 늘어도 서버 비용이 거의 늘지 않아서 무료입니다. 유료는 훈련 부하 추이·기기간 동기화처럼 라이딩을 자산으로 관리하는 쪽입니다."}},{"@type":"Question","name":"무엇이 서버로 나가나요?","acceptedAnswer":{"@type":"Answer","text":"앱을 열 때 하루 한 번 익명 방문 카운트, 공유 링크·계획 링크를 직접 눌렀을 때 그 내용(30일 임시 보관), 주간 랭킹에 참가하면 표시 이름과 이번 주 거리·고도·횟수입니다. 경로와 라이딩 파일은 나가지 않습니다."}},{"@type":"Question","name":"스트라바와 병행할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"됩니다. 소셜·세그먼트가 필요하면 스트라바를 계속 쓰시고, 파일을 올리기 전에 혼자 먼저 보고 싶을 때 쓰시면 됩니다. 스트라바에서 원본을 내려받아 넣어도 됩니다."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Naajim","applicationCategory":"SportsApplication","operatingSystem":"Web Browser (Desktop & Mobile)","url":"https://happyprg.github.io/naajim/strava-alternative.html","description":"계정을 만들지 않고, 파일을 올리지 않고 라이딩을 분석하는 방법. 내 숫자로 답하는 AI 코치와, 탈 때가 되면 먼저 말을 걸어 주는 비서가 함께합니다. 스트라바와 겹치는 것과 다른 것, 무엇이 서버로 나가는지도 그대로 밝혔습니다.","inLanguage":"ko","screenshot":["https://happyprg.github.io/naajim/og.png","https://happyprg.github.io/naajim/shot-report.png"],"featureList":["가민·와후 FIT/GPX 3초 브라우저 로컬 분석","100% 비공개 — 파일 서버 업로드 0Byte","입체 3D 경로 스토리 영상 자동 생성","NP · IF · TSS 및 오르막 등급(HC~4급) 자동 계산","AI 라이딩 코치 (키 없이 프롬프트 복사 / 내 API 키)","라이더 RPG 캐릭터 레벨 · XP · 잔디 · 도전과제","완주 가능성 및 휴식/보급 라이딩 계획서"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"128","bestRating":"5"},"offers":[{"@type":"Offer","name":"영원히 무료","price":"0","priceCurrency":"USD","description":"FIT/GPX 분석 및 저장 무제한, 3D 영상, 잔디, 도전과제"},{"@type":"Offer","name":"Pro 월간","price":"1900","priceCurrency":"KRW","description":"훈련 부하 CTL/ATL/TSB, 자전거 무제한, 부품 교체 알림, AI 코치 키 연결"},{"@type":"Offer","name":"Pro 연간","price":"14900","priceCurrency":"KRW","description":"연간 결제 (2개월 무료)"},{"@type":"Offer","name":"Pro 평생 소장","price":"39900","priceCurrency":"KRW","description":"1회 결제 평생 소장 라이선스"}]}</script>
+</head>
+<body>
+<style>
+:root{--bg:#0b0d11;--panel:#12151c;--panel2:#171b24;--edge:#232a36;--ink:#e8ebf2;--ink2:#a7adba;--muted:#79808f;--amber:#f0a63a}
+@media(prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--panel2:#f1f3f7;--edge:#dfe3ea;--ink:#1a1d23;--ink2:#4a5060;--muted:#6b7280}}
+body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0}
+.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px}
+.guide .crumb{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.guide .crumb a{color:var(--ink2)}
+.guide h1{font-size:clamp(25px,4.4vw,34px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px;text-wrap:balance}
+.guide h2{font-size:clamp(19px,2.6vw,23px);line-height:1.3;letter-spacing:-.02em;margin:38px 0 10px}
+.guide h3{font-size:17px;margin:22px 0 6px}
+.guide p{margin:0 0 14px}
+.guide .lead{font-size:17.5px;color:var(--ink2)}
+.guide ul,.guide ol{margin:0 0 16px;padding-left:22px}
+.guide li{margin:0 0 7px}
+.guide code{background:var(--panel2);border:1px solid var(--edge);border-radius:5px;padding:1px 5px;font-size:14.5px}
+.guide pre{background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:12px 14px;overflow-x:auto;margin:0 0 16px}
+.guide pre code{background:none;border:none;padding:0;font-size:13.5px}
+.guide a{color:var(--amber)}
+.guide .tip{background:var(--panel2);border:1px solid var(--edge);border-left:3px solid var(--amber);border-radius:9px;padding:12px 14px;font-size:15px;color:var(--ink2)}
+.guide .tw{overflow-x:auto;margin:0 0 18px}
+.guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:min(100%,420px)}
+.guide th,.guide td{border-bottom:1px solid var(--edge);padding:9px 10px;text-align:left;vertical-align:top}
+.guide th{font-size:13.5px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+.guide .col-rl{color:var(--amber)}
+.guide td.yes{color:#5cc98b}.guide td.no{color:#e0556b}
+.guide .faq h3{margin-top:18px}
+.guide .cta-box{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:18px 18px 16px;margin:26px 0}
+.guide .cta-box b{display:block;font-size:17px;margin-bottom:6px}
+.guide .cta-box p{font-size:15px;color:var(--ink2)}
+.guide .btn{display:inline-block;background:var(--panel2);border:1px solid var(--edge);color:var(--ink);
+  border-radius:999px;padding:11px 20px;font-size:15.5px;font-weight:700;text-decoration:none;margin:4px 6px 0 0;min-height:44px;box-sizing:border-box}
+.guide .btn.hot{background:linear-gradient(180deg,#ffc55c,#e8821a);border-color:transparent;color:#1a1206}
+.guide .also{margin-top:40px;padding-top:18px;border-top:1px solid var(--edge);font-size:14.5px;color:var(--muted)}
+</style>
+<article class="guide">
+  <p class="crumb"><a href="./">Naajim</a> · 안내</p>
+  <h1>스트라바 없이 라이딩 기록 분석하기</h1>
+  <p class="lead">스트라바가 나쁘다는 이야기가 아닙니다. 다만 <b>한 번 보려고 계정을 만들고 파일을
+  올리는 게</b> 부담인 경우가 있습니다 — 자출 기록에 집 주소에서 출발한 경로가 그대로 담기니까요.
+  올리지 않고, 가입하지 않고 보는 방법을 정리했습니다.</p>
+
+  <div class="cta-box">
+    <b>가입 없이 지금</b>
+    <p>파일을 끌어다 놓으면 3초 뒤 분석이 나옵니다. 계정이 없고, 파일은 기기를 떠나지 않습니다.</p>
+    <a class="btn hot" href="./app.html">파일 열기 (무료)</a>
+    <a class="btn" href="./app.html#demo">파일 없이 예시부터</a>
+  </div>
+
+  <h2>솔직한 비교 — 겹치는 것과 다른 것</h2>
+  <p>둘은 목적이 다릅니다. 겹치는 부분은 인정하고, 다른 부분만 적습니다.</p>
+  <div class="tw"><table>
+    <tr><th></th><th class="col-rl">Naajim</th><th>스트라바</th></tr>
+    <tr><td>계정</td><td class="yes">없음</td><td class="no">필요</td></tr>
+    <tr><td>파일 업로드</td><td class="yes">기본 없음</td><td class="no">필수</td></tr>
+    <tr><td>분석 횟수</td><td class="yes">무제한 (무료에서도)</td><td>요금제별</td></tr>
+    <tr><td>오프라인</td><td class="yes">됨</td><td class="no">안 됨</td></tr>
+    <tr><td>소셜 피드·팔로우</td><td class="no">없음</td><td class="yes">강함</td></tr>
+    <tr><td>세그먼트·KOM</td><td class="no">없음</td><td class="yes">강함</td></tr>
+    <tr><td>자동 동기화</td><td class="no">없음 (파일을 넣어야 함)</td><td class="yes">됨</td></tr>
+    <tr><td>AI 코치</td><td class="yes">내 API 키로 (서버 경유 없음)</td><td>일부 유료 기능</td></tr>
+    <tr><td>3D 스토리 영상</td><td class="yes">있음 (횟수 제한 없음)</td><td class="no">없음</td></tr>
+  </table></div>
+  <p><b>병행이 자연스럽습니다.</b> 소셜이 필요하면 스트라바를 계속 쓰시고, 파일을 올리기 전에
+  혼자 먼저 보고 싶을 때 Naajim를 쓰시면 됩니다. 스트라바에서 원본을 내려받아 넣어도 되고요.</p>
+
+  <h2>스트라바를 안 쓰고 싶은 이유가 프라이버시라면</h2>
+  <p>라이딩 파일에는 이런 게 들어 있습니다.</p>
+  <ul>
+    <li>집에서 출발해 집으로 돌아온 <b>경로 전체</b> — 사는 곳이 그대로 드러납니다</li>
+    <li>보통 몇 시에 나가고 몇 시에 돌아오는지 — <b>생활 패턴</b></li>
+    <li>심박·파워로 추정되는 <b>체력 수준</b></li>
+  </ul>
+  <p>Naajim는 이 파일을 <b>읽기만</b> 합니다. 분석·그래프·지도·3D 영상 생성이 전부 브라우저 안에서
+  끝납니다. 의심되시면 F12를 눌러 네트워크 탭을 열어 놓고 파일을 넣어 보세요 — 업로드 요청이 없습니다.</p>
+  <p>정직하게 함께 말씀드리면, 이런 것들은 나갑니다.</p>
+  <ul>
+    <li>앱을 열 때 <b>하루 한 번 익명 방문 카운트</b>(쿠키·식별자 없음)</li>
+    <li>공유 링크·계획 링크를 <b>직접 눌렀을 때만</b> 그 내용이 서버에 30일 임시 보관</li>
+    <li>주간 랭킹에 참가하면 표시 이름과 이번 주 거리·고도·횟수 (경로는 안 올라감)</li>
+    <li>날씨 조회를 켜면 약 1km로 뭉갠 좌표 (기본 꺼짐)</li>
+  </ul>
+  <p>전부 <b>내가 그 버튼을 눌렀을 때만</b>입니다.</p>
+
+  <h2>그래서 뭐가 나오나</h2>
+  <ul>
+    <li><b>기본 지표</b> — 거리·시간·획득고도·평균/최고 속도, 심박·파워·케이던스 그래프</li>
+    <li><b>훈련 지표</b> — NP·IF·TSS, 구간 기록, 오르막 자동 분해(HC~4급)와 VAM</li>
+    <li><b>3D 스토리 영상</b> — 경로가 그려지고 고도만큼 세워져 일어서는 9:16 세로 영상</li>
+    <li><b>AI 코치</b> — "그래서 뭘 하면 되나"에 내 숫자로 답합니다. 내 API 키로 브라우저에서 직접</li>
+    <li><b>라이딩 계획</b> — 가기 전에 "이 코스 갈 수 있나"를 내 기록 기준으로</li>
+    <li><b>기록·수집</b> — 보관함, 라이딩 잔디, 가상 국토종주, 도전과제</li>
+  </ul>
+  <p>여기까지 전부 무료이고 기한도 없습니다.</p>
+
+  <h2>왜 무료인가 — 구조가 그렇습니다</h2>
+  <p>분석이 <b>여러분 기기에서</b> 돕니다. 영상도 브라우저가 한 프레임씩 만듭니다. AI 코치도
+  여러분 키로 브라우저에서 직접 갑니다. 그래서 사용자가 늘어도 우리가 낼 서버 비용이 거의 늘지
+  않습니다 — 착해서가 아니라 <b>받을 게 없어서</b> 무료입니다.</p>
+  <p>유료(Pro)는 훈련 부하 추이·PR 추적·자전거 여러 대·기기간 동기화처럼
+  '라이딩을 자산으로 관리'하는 쪽입니다. 오늘의 라이딩을 보는 데는 필요하지 않습니다.</p>
+
+  <h2>자주 묻는 것</h2>
+  <div class="faq">
+    <h3>스트라바에서 파일을 어떻게 꺼내나요?</h3>
+    <p>활동 페이지에서 <b>… → 원본 내보내기</b>를 누르면 업로드했던 원본이 그대로 내려옵니다.
+    가민에서 올린 것이면 <code>.fit</code>이 받아집니다.</p>
+    <h3>둘 다 쓰면 기록이 두 곳에 생기나요?</h3>
+    <p>Naajim 보관함은 이 기기 안(브라우저 저장소)에 있습니다. 스트라바와 동기화되지 않으니
+    각자 따로입니다. 브라우저 데이터를 지우면 사라지므로 백업 폴더를 지정해 두시는 게 좋습니다.</p>
+    <h3>여러 기기에서 보고 싶어요</h3>
+    <p>Pro의 기기간 동기화를 쓰면 됩니다. 서버에는 <b>암호문만</b> 올라가고 열쇠는 기기에만
+    있어서 저희도 내용을 못 읽습니다 — 그래서 비밀번호를 잊으면 되살릴 수 없습니다.</p>
+    <h3>폰에서도 되나요?</h3>
+    <p>됩니다. 안드로이드는 스트라바·가민 앱의 <b>공유</b>로 바로 보낼 수 있고, 아이폰은
+    <b>건강</b> 앱에서 내보낸 <code>export.zip</code>으로 지난 라이딩을 한 번에 가져옵니다.</p>
+  </div>
+
+  <div class="cta-box">
+    <b>한 번 보고 판단하세요</b>
+    <p>가입이 없어서 남는 것도 없습니다. 마음에 안 들면 그냥 닫으면 됩니다.</p>
+    <a class="btn hot" href="./app.html">파일 열기</a>
+    <a class="btn" href="./app.html#demo">예시 라이딩 보기</a>
+  </div>
+
+  <p class="also">함께 보기 ·
+    <a href="./fit-viewer.html">.fit 파일 여는 법</a> ·
+    <a href="./fit-to-gpx.html">FIT을 GPX로 바꾸기</a> ·
+    <a href="./gpx-viewer.html">GPX 파일 보기</a>
+  </p>
+</article>
+
+</body>
+</html>

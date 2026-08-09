@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIT을 GPX로 바꾸는 법 — 파일을 어디에도 올리지 않고</title>
+<meta name="description" content="가민 .fit을 .gpx로 바꾸는 방법 세 가지와, 바꾸면 무엇이 사라지는지(파워·랩·온도) 비교. 내 집 주변 좌표가 담긴 파일이니 변환 사이트에 올리기 전에 확인할 것도 함께 정리했습니다.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naajim">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="FIT을 GPX로 바꾸는 법 — 파일을 어디에도 올리지 않고">
+<meta property="og:description" content="가민 .fit을 .gpx로 바꾸는 방법 세 가지와, 바꾸면 무엇이 사라지는지(파워·랩·온도) 비교. 내 집 주변 좌표가 담긴 파일이니 변환 사이트에 올리기 전에 확인할 것도 함께 정리했습니다.">
+<meta property="og:url" content="https://happyprg.github.io/naajim/fit-to-gpx.html">
+<meta property="og:image" content="https://happyprg.github.io/naajim/og.png">
+<meta property="og:image:alt" content="Naajim Preview">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FIT을 GPX로 바꾸는 법 — 파일을 어디에도 올리지 않고">
+<meta name="twitter:description" content="가민 .fit을 .gpx로 바꾸는 방법 세 가지와, 바꾸면 무엇이 사라지는지(파워·랩·온도) 비교. 내 집 주변 좌표가 담긴 파일이니 변환 사이트에 올리기 전에 확인할 것도 함께 정리했습니다.">
+<meta name="twitter:image" content="https://happyprg.github.io/naajim/og.png">
+<meta name="twitter:image:alt" content="Naajim Preview">
+<link rel="canonical" href="https://happyprg.github.io/naajim/fit-to-gpx.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"FIT을 GPX로 바꾸면 무엇이 사라지나요?","acceptedAnswer":{"@type":"Answer","text":"위치·고도·시각은 남습니다. 심박·케이던스는 확장 태그로만 들어가 읽는 앱이 제한적이고, 파워·랩 구간·온도·좌우 밸런스는 대개 사라집니다."}},{"@type":"Question","name":"변환 사이트에 올려도 괜찮을까요?","acceptedAnswer":{"@type":"Answer","text":"올리기 전에 세 가지를 확인하세요. 올린 파일을 언제 지우는지 명시돼 있는지, 결과가 공개 URL로 남지 않는지, 내 집 주변 좌표가 담긴 파일임을 감안해도 괜찮은 곳인지."}},{"@type":"Question","name":"반대로 GPX를 FIT으로 바꿀 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"코스 목적이라면 됩니다. 라이딩 계획에서 가민 코스(FIT)로 내보내면 기기가 코스로 인식해 다음 지점까지 남은 거리를 띄웁니다. 다만 없던 심박·파워가 생기지는 않습니다."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Naajim","applicationCategory":"SportsApplication","operatingSystem":"Web Browser (Desktop & Mobile)","url":"https://happyprg.github.io/naajim/fit-to-gpx.html","description":"가민 .fit을 .gpx로 바꾸는 방법 세 가지와, 바꾸면 무엇이 사라지는지(파워·랩·온도) 비교. 내 집 주변 좌표가 담긴 파일이니 변환 사이트에 올리기 전에 확인할 것도 함께 정리했습니다.","inLanguage":"ko","screenshot":["https://happyprg.github.io/naajim/og.png","https://happyprg.github.io/naajim/shot-report.png"],"featureList":["가민·와후 FIT/GPX 3초 브라우저 로컬 분석","100% 비공개 — 파일 서버 업로드 0Byte","입체 3D 경로 스토리 영상 자동 생성","NP · IF · TSS 및 오르막 등급(HC~4급) 자동 계산","AI 라이딩 코치 (키 없이 프롬프트 복사 / 내 API 키)","라이더 RPG 캐릭터 레벨 · XP · 잔디 · 도전과제","완주 가능성 및 휴식/보급 라이딩 계획서"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"128","bestRating":"5"},"offers":[{"@type":"Offer","name":"영원히 무료","price":"0","priceCurrency":"USD","description":"FIT/GPX 분석 및 저장 무제한, 3D 영상, 잔디, 도전과제"},{"@type":"Offer","name":"Pro 월간","price":"1900","priceCurrency":"KRW","description":"훈련 부하 CTL/ATL/TSB, 자전거 무제한, 부품 교체 알림, AI 코치 키 연결"},{"@type":"Offer","name":"Pro 연간","price":"14900","priceCurrency":"KRW","description":"연간 결제 (2개월 무료)"},{"@type":"Offer","name":"Pro 평생 소장","price":"39900","priceCurrency":"KRW","description":"1회 결제 평생 소장 라이선스"}]}</script>
+</head>
+<body>
+<style>
+:root{--bg:#0b0d11;--panel:#12151c;--panel2:#171b24;--edge:#232a36;--ink:#e8ebf2;--ink2:#a7adba;--muted:#79808f;--amber:#f0a63a}
+@media(prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--panel2:#f1f3f7;--edge:#dfe3ea;--ink:#1a1d23;--ink2:#4a5060;--muted:#6b7280}}
+body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0}
+.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px}
+.guide .crumb{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.guide .crumb a{color:var(--ink2)}
+.guide h1{font-size:clamp(25px,4.4vw,34px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px;text-wrap:balance}
+.guide h2{font-size:clamp(19px,2.6vw,23px);line-height:1.3;letter-spacing:-.02em;margin:38px 0 10px}
+.guide h3{font-size:17px;margin:22px 0 6px}
+.guide p{margin:0 0 14px}
+.guide .lead{font-size:17.5px;color:var(--ink2)}
+.guide ul,.guide ol{margin:0 0 16px;padding-left:22px}
+.guide li{margin:0 0 7px}
+.guide code{background:var(--panel2);border:1px solid var(--edge);border-radius:5px;padding:1px 5px;font-size:14.5px}
+.guide pre{background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:12px 14px;overflow-x:auto;margin:0 0 16px}
+.guide pre code{background:none;border:none;padding:0;font-size:13.5px}
+.guide a{color:var(--amber)}
+.guide .tip{background:var(--panel2);border:1px solid var(--edge);border-left:3px solid var(--amber);border-radius:9px;padding:12px 14px;font-size:15px;color:var(--ink2)}
+.guide .tw{overflow-x:auto;margin:0 0 18px}
+.guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:min(100%,420px)}
+.guide th,.guide td{border-bottom:1px solid var(--edge);padding:9px 10px;text-align:left;vertical-align:top}
+.guide th{font-size:13.5px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+.guide .col-rl{color:var(--amber)}
+.guide td.yes{color:#5cc98b}.guide td.no{color:#e0556b}
+.guide .faq h3{margin-top:18px}
+.guide .cta-box{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:18px 18px 16px;margin:26px 0}
+.guide .cta-box b{display:block;font-size:17px;margin-bottom:6px}
+.guide .cta-box p{font-size:15px;color:var(--ink2)}
+.guide .btn{display:inline-block;background:var(--panel2);border:1px solid var(--edge);color:var(--ink);
+  border-radius:999px;padding:11px 20px;font-size:15.5px;font-weight:700;text-decoration:none;margin:4px 6px 0 0;min-height:44px;box-sizing:border-box}
+.guide .btn.hot{background:linear-gradient(180deg,#ffc55c,#e8821a);border-color:transparent;color:#1a1206}
+.guide .also{margin-top:40px;padding-top:18px;border-top:1px solid var(--edge);font-size:14.5px;color:var(--muted)}
+</style>
+<article class="guide">
+  <p class="crumb"><a href="./">Naajim</a> · 안내</p>
+  <h1>FIT을 GPX로 바꾸는 법 — 변환 사이트에 올리지 않고</h1>
+  <p class="lead">가민 <code>.fit</code>을 <code>.gpx</code>로 바꾸는 방법은 많습니다. 문제는 대부분
+  <b>파일을 남의 서버에 올려야</b> 한다는 것입니다. 집에서 출발한 경로가 담긴 파일인데요.
+  브라우저 안에서 끝내는 방법과, 바꾸기 전에 알아야 할 것을 정리했습니다.</p>
+
+  <div class="cta-box">
+    <b>브라우저에서 바로 변환</b>
+    <p>파일을 열고 보관함에 저장한 뒤 <b>GPX 내보내기</b>를 누르면 됩니다.
+    변환도 <b>업로드 없이</b> 이 기기 안에서 끝나고, 가입도 필요 없습니다.</p>
+    <a class="btn hot" href="./app.html">FIT 열어서 GPX로 내보내기</a>
+    <a class="btn" href="./app.html#demo">먼저 예시로 확인</a>
+  </div>
+
+  <h2>먼저 — 정말 GPX가 필요한가요?</h2>
+  <p>변환하면 <b>데이터가 줄어듭니다.</b> GPX는 원래 경로(위치·고도·시각)를 담는 형식이라,
+  FIT에 들어 있던 것들이 표준 범위 밖으로 밀려납니다.</p>
+  <div class="tw"><table>
+    <tr><th>항목</th><th>FIT</th><th>GPX로 바꾼 뒤</th></tr>
+    <tr><td>위치·고도·시각</td><td class="yes">있음</td><td class="yes">있음</td></tr>
+    <tr><td>심박·케이던스</td><td class="yes">있음</td><td>확장 태그로만 (읽는 앱이 제한적)</td></tr>
+    <tr><td>파워</td><td class="yes">있음</td><td class="no">대개 사라짐</td></tr>
+    <tr><td>랩·구간 정보</td><td class="yes">있음</td><td class="no">사라짐</td></tr>
+    <tr><td>온도·좌우 밸런스·기기 정보</td><td class="yes">있음</td><td class="no">사라짐</td></tr>
+  </table></div>
+  <p>그래서 목적별로 답이 다릅니다.</p>
+  <ul>
+    <li><b>그냥 기록을 보고 싶다</b> → 변환하지 마세요. <a href="./fit-viewer.html">FIT을 그대로 여는 편</a>이 훨씬 많이 보입니다.</li>
+    <li><b>다른 앱·기기에 넣어야 한다</b> → GPX가 맞습니다. 거의 모든 앱이 읽습니다.</li>
+    <li><b>코스로 다시 타고 싶다</b> → GPX가 맞습니다. 사이컴에 코스로 넣을 수 있습니다.</li>
+    <li><b>친구에게 경로만 보내고 싶다</b> → GPX가 맞고, 오히려 심박 같은 개인 기록이 빠져서 낫습니다.</li>
+  </ul>
+
+  <h2>방법 1 — 브라우저에서 (업로드 없음)</h2>
+  <ol>
+    <li><a href="./app.html">Naajim</a>에 <code>.fit</code> 파일을 끌어다 놓습니다.</li>
+    <li>분석 화면이 나오면 <b>보관함에 저장</b>을 누릅니다.</li>
+    <li>보관함에서 그 라이딩의 <b>GPX 내보내기</b>를 누르면 <code>.gpx</code>가 내려옵니다.</li>
+  </ol>
+  <p class="tip">💡 라이딩 계획 화면에서는 <b>휴식·보급 지점이 웨이포인트로 들어간 GPX</b>와
+  가민이 코스로 인식하는 <b>FIT 코스</b>로도 내보낼 수 있습니다 — 다음에 그 코스를 다시 탈 때 유용합니다.</p>
+
+  <h2>방법 2 — 스트라바를 경유</h2>
+  <p>이미 스트라바에 올린 활동이라면 활동 페이지에서 <b>… → GPX 내보내기</b>를 쓸 수 있습니다.
+  단, 이미 업로드된 상태여야 하고 심박·파워는 빠집니다.</p>
+
+  <h2>방법 3 — 명령줄 (개발자용)</h2>
+  <p>파이썬이라면 <code>fitdecode</code>나 <code>python-fitparse</code>로 읽어 GPX를 직접 쓸 수 있습니다.
+  여러 파일을 자동으로 처리해야 할 때는 이 방법이 편합니다. 한두 개라면 브라우저가 빠릅니다.</p>
+
+  <h2>온라인 변환 사이트를 쓸 때 확인할 것</h2>
+  <p>쓰지 말라는 뜻은 아닙니다. 다만 올리기 전에 이 셋은 보고 결정하세요.</p>
+  <ul>
+    <li>올린 파일을 <b>언제 지우는지</b> 명시돼 있는가</li>
+    <li>변환 결과가 <b>공개 URL</b>로 남지 않는가</li>
+    <li>내 <b>집 주변 좌표</b>가 담긴 파일임을 감안해도 괜찮은 곳인가</li>
+  </ul>
+
+  <h2>자주 묻는 것</h2>
+  <div class="faq">
+    <h3>변환한 GPX에 심박이 남나요?</h3>
+    <p>GPX 확장(<code>gpxtpx</code>) 태그로 넣을 수는 있지만, 읽는 앱이 제한적입니다.
+    심박·파워가 중요하다면 원본 FIT을 함께 보관하세요.</p>
+    <h3>반대로 GPX를 FIT으로 바꿀 수 있나요?</h3>
+    <p>코스 목적이라면 됩니다. 라이딩 계획에서 <b>가민 코스(FIT)</b>로 내보내면 기기가 코스로
+    인식해 다음 지점까지 남은 거리를 띄웁니다. 다만 없던 심박·파워가 생기지는 않습니다.</p>
+    <h3>파일이 여러 개인데요?</h3>
+    <p>한꺼번에 놓으면 차례로 처리해 보관함에 쌓입니다. 거기서 하나씩 내보내면 됩니다.</p>
+  </div>
+
+  <div class="cta-box">
+    <b>지금 바꿔 보세요</b>
+    <p>업로드 없이, 가입 없이, 이 기기 안에서 끝납니다.</p>
+    <a class="btn hot" href="./app.html">FIT 열기</a>
+  </div>
+
+  <p class="also">함께 보기 ·
+    <a href="./fit-viewer.html">.fit 파일 여는 법</a> ·
+    <a href="./gpx-viewer.html">GPX 파일 보기</a> ·
+    <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
+  </p>
+</article>
+
+</body>
+</html>

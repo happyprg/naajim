@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://happyprg.github.io/naajim/sitemap.xml

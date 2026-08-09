@@ -1,0 +1,52 @@
+{
+  "name": "Naajim — 나아짐, 어제보다 나은 오늘",
+  "short_name": "Naajim",
+  "start_url": "https://happyprg.github.io/naajim/app.html",
+  "scope": "https://happyprg.github.io/naajim/",
+  "display": "standalone",
+  "background_color": "#0d0f13",
+  "theme_color": "#0d0f13",
+  "icons": [
+    {
+      "src": "https://happyprg.github.io/naajim/logo-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "https://happyprg.github.io/naajim/app.html",
+      "accept": {
+        "application/octet-stream": [
+          ".fit"
+        ],
+        "application/gpx+xml": [
+          ".gpx"
+        ]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "https://happyprg.github.io/naajim/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "file",
+          "accept": [
+            "application/octet-stream",
+            "application/gpx+xml",
+            "application/zip",
+            ".fit",
+            ".gpx",
+            ".zip"
+          ]
+        }
+      ]
+    }
+  }
+}
