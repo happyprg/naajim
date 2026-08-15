@@ -49,7 +49,7 @@
 <header class="hero" id="top">
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.178.0</b> For everyone who got out there today</span>
+    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.179.0</b> For everyone who got out there today</span>
     <!-- 영문 대문은 한국어판과 **다른 것을 먼저 말한다**. 한국에서는 "누가 옆에 있는가"가 강점이지만,
          영어권 자전거 커뮤니티는 지금 AI에 적대적이다(r/cycling "No AI content", r/gravelcycling은
          광고 금지 항목에 "vibe coded apps"를 적어 두었다). 거기서 데려온 사람이 첫 줄에서
@@ -297,24 +297,38 @@
   </div>
 </section>
 
-<!-- Running (v1.178.0) — the first place the landing page says why the app was renamed.
+<!-- Running (v1.179.0) — the first place the landing page says why the app was renamed.
      ⚠️ What to boast about here is not "one more sport" but **that it doesn't mix in**. The moment
      years of runs bleed into cycling totals, every number in the app becomes a lie — which is
      exactly why people distrust the other apps. What it can't do yet (swimming) goes here too. -->
 <section id="run">
   <div class="wrap">
     <div class="sec-head">
-      <div class="k">Running</div>
-      <h2>The old name was too narrow for what this holds</h2>
-      <p>Drop a Strava bulk export and <b>your runs and swims come in too</b>. They used to be filtered out wholesale — if you had years of running in there, the import only ever did half the job.</p>
+      <div class="k">Run · Swim · Ride</div>
+      <h2>Three sports, each read in its own language</h2>
+      <p>Drop a Strava bulk export and <b>your runs and swims come in too</b>. Each sport looks at different numbers, so the screen answers in that sport's language.</p>
     </div>
+    <!-- Split by persona — a runner should not have to hunt for their own line in a feature list.
+         Each column answers the one question that person actually asks. No history, only what they get. -->
     <div class="grid3">
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="14" cy="4.5" r="2"/><path d="M13 9l-4 3 2 4-3 5"/><path d="M13 9l4 2 1 4"/><path d="M9 12L5 11"/></svg></div>
-        <h3>🏃 Each sport in its own units</h3><p>Runs get <b>pace (min/km)</b> and <b>1 km</b> splits; swims get <b>pace per 100 m</b>, <b>100 m</b> splits and distance in <b>metres</b>. Even cadence is named for the sport — rpm, spm, <b>stroke rate</b>.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 8h5M15 8h5"/><circle cx="6.5" cy="14" r="3"/><circle cx="17.5" cy="14" r="3"/></svg></div>
-        <h3>⚖️ It never mixes into your cycling</h3><p>Runs stay out of distance, elevation, XP, levels, the weekly ranking, the grass, PRs and My courses — <b>all of it</b>. A 10 km/h "ride" dragging your average down would make every number in the app a lie.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.5"/></svg></div>
-        <h3>🔎 The sport comes from the file</h3><p>Read straight from the FIT sport field and the sport recorded in GPX and Strava exports. <b>Never guessed from the filename</b> — in your library they're split out by a 🏃 badge and a sport filter.</p></div>
+        <h3>🏃 If you run</h3>
+        <p><b>Read in pace, answered in pace.</b> 1 km splits, min/km, cadence in spm — no converting km/h in your head.<br><br>
+        <b>It answers &quot;was I faster today?&quot;</b> — against your own last five: <b>6:00/km → 5:34 today, 26 seconds faster</b>. Same sport only, and <b>silent until three records exist</b>.<br><br>
+        <b>🤖 The AI coach answers as a running coach</b> — targets in <b>pace, heart rate and spm</b>, not watts.<br><br>
+        The run planner learns your pace <b>from your own runs</b>.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M2 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M2 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><circle cx="17" cy="6" r="2"/><path d="M6 12l5-3 4 2"/></svg></div>
+        <h3>🏊 If you swim</h3>
+        <p><b>Pace per 100 m, distance in metres.</b> 1,500 m stays 1,500 m — and splits break at 100 m, the way you counted lengths.<br><br>
+        <b>Pool swims come in.</b> Sessions with no route get dropped by most tools; here the <b>distance, time and pace stay</b>. The screen also says why there is no map.<br><br>
+        <b>No elevation gain anywhere</b> — what looks like climbing in water is GPS drift, not a hill.<br><br>
+        Strokes are <b>spm</b>, never called cadence.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4-9h5l-3 9M9 8h6"/></svg></div>
+        <h3>🚴 If you ride</h3>
+        <p><b>Nothing changed for you.</b> Power, NP, TSS, zones, FTP, the PR room, My courses and climbs, the weekly ranking — all as they were.<br><br>
+        <b>Other sports never mix into your cycling numbers.</b> Distance, elevation, PRs, courses and the weekly km board count <b>rides only</b> — a 10 km/h &quot;ride&quot; dragging your average down would make every number a lie.<br><br>
+        <b>A winter of running will not break your streak.</b> Grass, streaks and XP count <b>intensity (MET) × time</b>, so they cross sports.<br><br>
+        Trainer rides are measured by <b>power</b>, not speed.</p></div>
     </div>
     <p style="text-align:center;color:var(--ink2);font-size:14.5px;margin:20px 0 0">
       🏊 <b>Swims come in too — pool and open water.</b> A pool swim records no route, so there's no map, and the screen says so: "missing" and "broken" look identical otherwise. Sports we don't handle yet (strength, rowing…) are <b>left out on import, and we tell you how many and why</b>.</p>
@@ -647,7 +661,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.178.0</code> · All analysis happens on your device.</span>
+    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.179.0</code> · All analysis happens on your device.</span>
     <span><a class="mailme" data-show="1" href="#">Contact</a></span>
   </div>
 </footer>

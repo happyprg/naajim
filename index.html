@@ -49,7 +49,7 @@
 <header class="hero" id="top">
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.178.0</b> 오늘도 페달을 밟은 당신에게</span>
+    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.179.0</b> 오늘도 페달을 밟은 당신에게</span>
     <!-- 대문은 "무엇을 하는 도구인가"가 아니라 "누가 옆에 있는가"로 연다. 자전거는 대개 혼자
          타고, 나가기까지가 제일 어렵다 — 그 자리에 먼저 말을 걸어 주는 쪽이 있다는 게 이 앱의 자리다. -->
     <!-- 둘째 줄은 짧아야 한다 — 폰에서 h1이 다섯 줄로 접히면 읽기 전에 벽으로 보인다. -->
@@ -282,24 +282,39 @@
   </div>
 </section>
 
-<!-- 달리기 (v1.178.0) — 이름을 '나아짐'으로 바꾼 이유를 대문에서 처음으로 말하는 자리다.
+<!-- 달리기 (v1.179.0) — 이름을 '나아짐'으로 바꾼 이유를 대문에서 처음으로 말하는 자리다.
      ⚠️ 여기서 자랑할 것은 "종목이 늘었다"가 아니라 **"섞이지 않는다"** 이다. 몇 년치 달리기가
      자전거 통계에 섞이면 그 순간 이 앱의 모든 숫자가 거짓이 되는데, 그게 바로 다른 앱을
      못 믿는 이유이기 때문이다. 못 하는 것(수영)도 같은 자리에 적는다. -->
 <section id="run">
   <div class="wrap">
     <div class="sec-head">
-      <div class="k">달리기</div>
-      <h2>자전거만 담기엔, 이름이 좁았습니다</h2>
-      <p>스트라바 전체 기록을 넣으면 <b>달리기와 수영도 함께</b> 들어옵니다. 예전에는 자전거가 아닌 활동을 전부 걸러 냈습니다 — 몇 년치 달리기를 가진 분께는 가져오기가 절반만 됐던 셈입니다.</p>
+      <div class="k">달리기 · 수영 · 라이딩</div>
+      <h2>세 종목, 각자의 말로 읽습니다</h2>
+      <p>스트라바 전체 기록을 넣으면 <b>달리기와 수영도 함께</b> 들어옵니다. 종목마다 보는 숫자가 다르니, 화면도 그 종목의 말로 답합니다.</p>
     </div>
+    <!-- **페르소나별로 나눈다.** 같은 기능을 나열하면 러너는 자기 얘기가 어디 있는지 못 찾는다.
+         각 칸은 그 사람이 실제로 묻는 것 하나에 답한다: 러너는 "빨라졌나", 수영은 "얼마나 갔나",
+         라이더는 "얼마나 셌나". 우리 사정(히스토리)은 한 줄도 쓰지 않는다 — SO WHAT만. -->
     <div class="grid3">
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="14" cy="4.5" r="2"/><path d="M13 9l-4 3 2 4-3 5"/><path d="M13 9l4 2 1 4"/><path d="M9 12L5 11"/></svg></div>
-        <h3>🏃 종목마다 그 종목의 말로</h3><p>달리기는 평균 속도가 아니라 <b>페이스(분/km)</b>에 <b>1km</b> 구간, 수영은 <b>100m 페이스</b>에 <b>100m</b> 구간이고 거리도 <b>m</b>로 셉니다. 케이던스도 rpm·spm·<b>스트로크</b>로 갈라 부릅니다.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M4 8h5M15 8h5"/><circle cx="6.5" cy="14" r="3"/><circle cx="17.5" cy="14" r="3"/></svg></div>
-        <h3>⚖️ 자전거 숫자에는 섞이지 않습니다</h3><p>달리기는 거리·획득고도·XP·레벨·주간 랭킹·잔디·PR·나의 코스 <b>어디에도 들어가지 않습니다</b>. 시속 10km짜리 '라이딩'이 평균 속도를 끌어내리면, 그 순간 앱의 모든 숫자가 거짓이 되니까요.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.5"/></svg></div>
-        <h3>🔎 종목은 파일이 말한 대로</h3><p>FIT의 종목 필드와 GPX·스트라바 내보내기의 종목을 그대로 읽습니다. <b>파일 이름으로 짐작하지 않습니다</b> — 보관함에서는 🏃 배지와 종목 필터로 갈라 봅니다.</p></div>
+        <h3>🏃 달리는 사람에게</h3>
+        <p><b>페이스로 읽고 페이스로 답합니다.</b> 1km 구간, 분/km, 케이던스 spm — 속도(km/h)로 적힌 화면을 다시 계산할 일이 없습니다.<br><br>
+        <b>"오늘 빨라졌나"에 답합니다</b> — 최근 5회 평균과 나란히 놓아 <b>"6:00/km → 오늘 5:34, 26초 빨랐습니다"</b>처럼요. 같은 종목끼리만 견주고, <b>기록 3회가 모이기 전에는 말하지 않습니다</b>.<br><br>
+        <b>🤖 AI 코치도 러닝 코치로 답합니다</b> — 지시가 파워 W가 아니라 <b>페이스·심박·spm</b>으로 옵니다.<br><br>
+        러닝 계획은 <b>내 달리기 기록에서 배운 페이스</b>로 완주 시간과 쉴 자리를 잡습니다.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M2 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M2 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><circle cx="17" cy="6" r="2"/><path d="M6 12l5-3 4 2"/></svg></div>
+        <h3>🏊 헤엄치는 사람에게</h3>
+        <p><b>100m 페이스와 m 단위.</b> 1,500m를 "1.5km"로 적지 않고, 구간도 100m로 끊습니다 — 레인을 세던 그 숫자 그대로요.<br><br>
+        <b>레인 수영도 들어옵니다.</b> 경로가 안 남는 기록은 다른 앱에서 흔히 버려지는데, 여기서는 <b>거리·시간·페이스가 그대로</b> 남습니다. 지도가 없는 이유도 화면에 적어 둡니다.<br><br>
+        <b>획득 고도 같은 건 아예 안 보입니다</b> — 물에서 오른 고도는 GPS 튐이지 언덕이 아니니까요.<br><br>
+        스트로크는 <b>spm</b>으로, 케이던스라고 부르지 않습니다.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4-9h5l-3 9M9 8h6"/></svg></div>
+        <h3>🚴 타는 사람에게</h3>
+        <p><b>바뀐 것은 없습니다.</b> 파워·NP·TSS·파워존·FTP, PR 기록실, 나의 코스·나의 언덕, 주간 랭킹, 국토종주 — 전부 그대로입니다.<br><br>
+        <b>다른 종목이 자전거 숫자에 섞이지 않습니다.</b> 거리·획득고도·PR·나의 코스·주간 km 랭킹은 <b>자전거만</b> 셉니다 — 시속 10km짜리 '라이딩'이 평균을 끌어내리면 그 순간 모든 숫자가 거짓이 되니까요.<br><br>
+        <b>겨울에 달리기만 해도 잔디가 끊기지 않습니다.</b> 잔디·연속 기록·XP는 <b>강도(MET)×시간</b>으로 세기 때문에 종목을 가로지릅니다.<br><br>
+        로라 기록은 속도가 아니라 <b>파워로</b> 셉니다.</p></div>
     </div>
     <p style="text-align:center;color:var(--ink2);font-size:14.5px;margin:20px 0 0">
       🏊 <b>수영은 레인도 오픈워터도 들어옵니다.</b> 레인 수영은 경로가 남지 않아 지도가 없고, 그 사실을 화면에 적어 둡니다 — 없는 것과 고장 난 것은 화면에서 똑같이 생겼으니까요. 아직 다루지 않는 종목(근력운동·조정 등)은 <b>가져올 때 제외하고 몇 개를 왜 뺐는지 알려 드립니다</b>.</p>
@@ -656,7 +671,7 @@
       <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
     </div>
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.178.0</code> · 모든 분석은 내 기기 안에서.</span>
+      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.179.0</code> · 모든 분석은 내 기기 안에서.</span>
       <span><a class="mailme" data-show="1" href="#">문의 메일</a></span>
     </div>
   </div>
