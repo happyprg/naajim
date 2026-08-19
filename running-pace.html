@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>러닝 기록 분석 — 페이스·구간·내 5K 기록을 브라우저에서 바로</title>
+<meta name="description" content="가민·애플워치·스트라바에서 꺼낸 달리기 파일을 분/km 페이스와 1km 구간으로 읽습니다. 최근 5회와 견준 오늘의 페이스, 1K·5K·10K·하프·마라톤 최고 기록, 심박 존까지. 가입도 업로드도 없이 무료.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Naajim">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="러닝 기록 분석 — 페이스·구간·내 5K 기록을 브라우저에서 바로">
+<meta property="og:description" content="가민·애플워치·스트라바에서 꺼낸 달리기 파일을 분/km 페이스와 1km 구간으로 읽습니다. 최근 5회와 견준 오늘의 페이스, 1K·5K·10K·하프·마라톤 최고 기록, 심박 존까지. 가입도 업로드도 없이 무료.">
+<meta property="og:url" content="https://happyprg.github.io/naajim/running-pace.html">
+<meta property="og:image" content="https://happyprg.github.io/naajim/og.png">
+<meta property="og:image:alt" content="Naajim Preview">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="러닝 기록 분석 — 페이스·구간·내 5K 기록을 브라우저에서 바로">
+<meta name="twitter:description" content="가민·애플워치·스트라바에서 꺼낸 달리기 파일을 분/km 페이스와 1km 구간으로 읽습니다. 최근 5회와 견준 오늘의 페이스, 1K·5K·10K·하프·마라톤 최고 기록, 심박 존까지. 가입도 업로드도 없이 무료.">
+<meta name="twitter:image" content="https://happyprg.github.io/naajim/og.png">
+<meta name="twitter:image:alt" content="Naajim Preview">
+<link rel="canonical" href="https://happyprg.github.io/naajim/running-pace.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"달리기 페이스를 어떻게 보나요?","acceptedAnswer":{"@type":"Answer","text":"파일을 끌어다 놓으면 분/km 페이스와 1km 구간 기록이 바로 나옵니다. 그래프의 세로 눈금까지 페이스로 적혀 있어 km/h를 머릿속에서 다시 계산할 일이 없습니다."}},{"@type":"Question","name":"내 5K 기록은 어디서 보나요?","acceptedAnswer":{"@type":"Answer","text":"보관함에 쌓인 달리기 전체를 훑어 1K·5K·10K·하프·마라톤의 최고 시간과 그때 페이스를 뽑아 둡니다. 그 거리를 채운 기록이 없으면 만들어 내지 않습니다 — 3km를 달린 날에는 5K 기록이 생기지 않습니다."}},{"@type":"Question","name":"심박 존 기준은 무엇인가요?","acceptedAnswer":{"@type":"Answer","text":"내 기록에서 실제로 관찰된 최고 심박입니다. 나이 공식(220−나이)은 사람마다 ±20bpm씩 어긋나 존을 거짓으로 만들기 때문에 쓰지 않고, 최대 심박을 따로 묻지도 않습니다. 더 높은 심박이 찍히면 기준이 함께 올라갑니다."}},{"@type":"Question","name":"트레드밀 기록도 되나요?","acceptedAnswer":{"@type":"Answer","text":"거리·시간이 파일에 있으면 페이스와 구간이 나옵니다. 좌표가 없어 지도와 3D 영상은 없고, 그 이유를 화면에 적어 둡니다."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Naajim","applicationCategory":"SportsApplication","operatingSystem":"Web Browser (Desktop & Mobile)","url":"https://happyprg.github.io/naajim/running-pace.html","description":"가민·애플워치·스트라바에서 꺼낸 달리기 파일을 분/km 페이스와 1km 구간으로 읽습니다. 최근 5회와 견준 오늘의 페이스, 1K·5K·10K·하프·마라톤 최고 기록, 심박 존까지. 가입도 업로드도 없이 무료.","inLanguage":"ko","screenshot":["https://happyprg.github.io/naajim/og.png","https://happyprg.github.io/naajim/shot-report.png"],"featureList":["가민·와후 FIT/GPX 3초 브라우저 로컬 분석","100% 비공개 — 파일 서버 업로드 0Byte","입체 3D 경로 스토리 영상 자동 생성","NP · IF · TSS 및 오르막 등급(HC~4급) 자동 계산","AI 라이딩 코치 (키 없이 프롬프트 복사 / 내 API 키)","라이더 RPG 캐릭터 레벨 · XP · 잔디 · 도전과제","완주 가능성 및 휴식/보급 라이딩 계획서"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","ratingCount":"128","bestRating":"5"},"offers":[{"@type":"Offer","name":"영원히 무료","price":"0","priceCurrency":"USD","description":"FIT/GPX 분석 및 저장 무제한, 3D 영상, 잔디, 도전과제"},{"@type":"Offer","name":"Pro 월간","price":"1900","priceCurrency":"KRW","description":"훈련 부하 CTL/ATL/TSB, 자전거 무제한, 부품 교체 알림, AI 코치 키 연결"},{"@type":"Offer","name":"Pro 연간","price":"14900","priceCurrency":"KRW","description":"연간 결제 (2개월 무료)"},{"@type":"Offer","name":"Pro 평생 소장","price":"39900","priceCurrency":"KRW","description":"1회 결제 평생 소장 라이선스"}]}</script>
+</head>
+<body>
+<style>
+:root{--bg:#0b0d11;--panel:#12151c;--panel2:#171b24;--edge:#232a36;--ink:#e8ebf2;--ink2:#a7adba;--muted:#79808f;--amber:#f0a63a}
+@media(prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--panel2:#f1f3f7;--edge:#dfe3ea;--ink:#1a1d23;--ink2:#4a5060;--muted:#6b7280}}
+body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0}
+.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px}
+.guide .crumb{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+.guide .crumb a{color:var(--ink2)}
+.guide h1{font-size:clamp(25px,4.4vw,34px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px;text-wrap:balance}
+.guide h2{font-size:clamp(19px,2.6vw,23px);line-height:1.3;letter-spacing:-.02em;margin:38px 0 10px}
+.guide h3{font-size:17px;margin:22px 0 6px}
+.guide p{margin:0 0 14px}
+.guide .lead{font-size:17.5px;color:var(--ink2)}
+.guide ul,.guide ol{margin:0 0 16px;padding-left:22px}
+.guide li{margin:0 0 7px}
+.guide code{background:var(--panel2);border:1px solid var(--edge);border-radius:5px;padding:1px 5px;font-size:14.5px}
+.guide pre{background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:12px 14px;overflow-x:auto;margin:0 0 16px}
+.guide pre code{background:none;border:none;padding:0;font-size:13.5px}
+.guide a{color:var(--amber)}
+.guide .tip{background:var(--panel2);border:1px solid var(--edge);border-left:3px solid var(--amber);border-radius:9px;padding:12px 14px;font-size:15px;color:var(--ink2)}
+.guide .tw{overflow-x:auto;margin:0 0 18px}
+.guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:min(100%,420px)}
+.guide th,.guide td{border-bottom:1px solid var(--edge);padding:9px 10px;text-align:left;vertical-align:top}
+.guide th{font-size:13.5px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+.guide .col-rl{color:var(--amber)}
+.guide td.yes{color:#5cc98b}.guide td.no{color:#e0556b}
+.guide .faq h3{margin-top:18px}
+.guide .cta-box{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:18px 18px 16px;margin:26px 0}
+/* 상자의 **머리글만** 블록이다 — 직계 자식으로 좁히지 않으면 본문 문장 안의 <b>가 통째로
+   줄바꿈되어 문장이 토막 난다(실제로 러닝 안내에서 그렇게 났다). */
+.guide .cta-box > b{display:block;font-size:17px;margin-bottom:6px}
+.guide .cta-box p{font-size:15px;color:var(--ink2)}
+.guide .btn{display:inline-block;background:var(--panel2);border:1px solid var(--edge);color:var(--ink);
+  border-radius:999px;padding:11px 20px;font-size:15.5px;font-weight:700;text-decoration:none;margin:4px 6px 0 0;min-height:44px;box-sizing:border-box}
+.guide .btn.hot{background:linear-gradient(180deg,#ffc55c,#e8821a);border-color:transparent;color:#1a1206}
+.guide .also{margin-top:40px;padding-top:18px;border-top:1px solid var(--edge);font-size:14.5px;color:var(--muted)}
+</style>
+<article class="guide">
+  <p class="crumb"><a href="./">Naajim</a> · 안내</p>
+  <h1>러닝 기록 분석 — 페이스·구간·내 5K 기록을 브라우저에서 바로</h1>
+  <p class="lead">달리고 나면 궁금한 건 대개 셋입니다. <b>오늘 페이스가 어땠나</b>,
+  <b>지난번보다 빨라졌나</b>, <b>내 5K 기록은 얼마나 되나</b>.
+  가민·애플워치·스트라바에서 꺼낸 파일 하나면 세 가지 다 나옵니다. 가입도 업로드도 없습니다.</p>
+
+  <div class="cta-box">
+    <b>바로 열어보기</b>
+    <p>파일을 끌어다 놓으면 <b>분/km 페이스</b>, <b>1km 구간 기록</b>, 심박, 케이던스(spm)가 나옵니다.
+    <b>파일은 이 기기 안에서만 읽힙니다</b> — 집 주변 좌표가 담긴 파일이라 그게 기본이어야 한다고 봅니다.</p>
+    <a class="btn hot" href="./app.html">러닝 파일 열기 (무료)</a>
+    <a class="btn" href="./app.html#demo">파일 없이 예시부터</a>
+  </div>
+
+  <h2>달리는 사람의 단위로 읽습니다</h2>
+  <p>자전거용 앱에 달리기를 넣으면 화면이 <code>km/h</code>로 말합니다. 25.2km/h가 몇 분 페이스인지
+  머릿속에서 다시 계산해야 하죠. 여기서는 그럴 일이 없습니다.</p>
+  <div class="tw"><table>
+    <tr><th>보는 것</th><th>어떻게 나오나</th></tr>
+    <tr><td>페이스</td><td><b>분/km</b> — 그래프의 세로 눈금까지 페이스입니다</td></tr>
+    <tr><td>구간</td><td><b>1km</b>마다 (자전거는 5km, 수영은 100m)</td></tr>
+    <tr><td>케이던스</td><td><b>spm</b>(분당 걸음) — rpm이라고 부르지 않습니다</td></tr>
+    <tr><td>파워 · FTP · TSS</td><td>안 나옵니다 — 자전거 잣대라서요. 그 사실도 화면에 적어 둡니다</td></tr>
+  </table></div>
+
+  <h2>"오늘 빨라졌나"에 답합니다</h2>
+  <p>최근 5회 평균과 나란히 놓고 말해 줍니다 — <b>"최근 5회 평균 6:00/km → 오늘 5:34/km, 26초 빨랐습니다"</b>처럼요.
+  견주는 상대는 <b>같은 종목 기록뿐</b>입니다. 자전거와 섞으면 그 숫자는 아무 뜻이 없으니까요.</p>
+  <p>다만 <b>기록 3회가 모이기 전에는 말하지 않습니다.</b> 한 번 달리고 "빨라졌다"고 하면
+  그건 계산이 아니라 우연입니다.</p>
+
+  <h2>내 5K·10K·하프·마라톤 기록</h2>
+  <p>러너에게 "내 기록"은 곧 거리별 최고 기록입니다. 보관함에 쌓인 달리기 전체를 훑어
+  <b>1K · 5K · 10K · 하프 · 마라톤</b>의 최고 시간과 그때 페이스를 뽑아 둡니다.
+  오늘 그중 하나를 갈아치웠다면 리포트가 그 자리에서 알려 줍니다.</p>
+  <p>한 가지 원칙이 있습니다. <b>못 채운 거리는 지어내지 않습니다.</b>
+  3km를 달린 날에는 5K 기록이 생기지 않습니다. 계산도 목표 거리에 <b>도달한 순간</b> 창을 닫아,
+  실제보다 아주 조금 느리게(보수적으로) 잡습니다.</p>
+
+  <h2>쉬운 러닝을 충분히 했나 (심박 존)</h2>
+  <p>파워가 없는 종목이라 존 카드가 아예 없던 시절이 있었습니다. 지금은 <b>심박으로 같은 질문에 답합니다</b> —
+  Z1 아주 가볍게 / Z2 쉬운 러닝 / Z3 템포 / Z4 역치 / Z5 고강도로 시간 비중을 나눠 보여 줍니다.</p>
+  <p>기준선은 <b>내 기록에서 실제로 관찰된 최고 심박</b>입니다.
+  나이 공식(220−나이)은 사람마다 ±20bpm씩 어긋나서, 그걸로 존을 가르면 숫자가 거짓말을 합니다.
+  최대 심박을 따로 여쭤보지도 않습니다 — 카드에 기준이 된 숫자를 적어 두고, 더 높은 심박이 찍히면 기준도 함께 올라갑니다.</p>
+
+  <h2>주 단위로 봅니다</h2>
+  <p>달리는 사람은 <b>주</b>로 삽니다("이번 주 40km"). 종목 카드에 <b>이번 주 횟수·거리</b>가
+  지난 4주 평균과 나란히 나옵니다. 4주가 다 모이기 전에는 평균을 말하지 않습니다.</p>
+
+  <h2>파일은 어디서 꺼내나</h2>
+  <ul>
+    <li><b>가민·코로스·순토</b> — 기기를 USB로 연결해 <code>GARMIN/Activity/</code>의 <code>.fit</code>을 끌어다 놓거나,
+    Garmin Connect 활동 페이지에서 <b>원본 내보내기</b>.</li>
+    <li><b>애플워치</b> — 아이폰 건강 앱 → 프로필 → <b>모든 건강 데이터 내보내기</b> → 나온 <code>export.zip</code>을 그대로 넣으면
+    지난 달리기가 한 번에 들어옵니다.</li>
+    <li><b>스트라바</b> — 활동 페이지 <b>… → 원본 내보내기</b>. 계정 전체 기록을 신청해 받은 zip을 통째로 넣어도 됩니다.</li>
+    <li><b>안드로이드</b> — 스트라바·가민 앱의 공유 버튼에서 Naajim을 고르면 그 기록이 바로 들어옵니다.</li>
+  </ul>
+
+  <h2>달리기만 하면 화면이 달리기 화면이 됩니다</h2>
+  <p>묻지 않고 보관함에서 알아냅니다. 잔디는 「달리기 잔디」가 되고, 자전거 카드는 물러나고,
+  달리기 카드가 맨 위로 옵니다. 러닝화가 몇 km를 뛰었는지도 세어 드립니다(기본 600km, 고칠 수 있습니다).</p>
+
+  <div class="faq">
+    <h2>자주 묻는 것</h2>
+    <h3>파일이 정말 서버로 안 올라가나요?</h3>
+    <p>파싱과 계산이 전부 브라우저 안에서 돕니다. F12 네트워크 탭을 열어 놓고 파일을 넣어 보면
+    업로드 요청이 없습니다. 계정도 없습니다. 앱을 열 때 하루 한 번 익명 방문 카운트만 보냅니다(쿠키·식별자 없음).</p>
+    <h3>5K 기록이 왜 안 뜨나요?</h3>
+    <p>그 거리를 채운 달리기가 아직 없으면 뜨지 않습니다. 3km만 달린 기록에서 5K 기록을 만들어 내지 않습니다.
+    또 견줄 기록이 3개는 모여야 '기록'이라는 말을 씁니다.</p>
+    <h3>심박 존 기준이 제 최대 심박과 다른데요?</h3>
+    <p>기준은 <b>내 기록에서 관찰된 최고값</b>이라, 아직 전력으로 달린 기록이 없으면 실제 최대보다 낮게 잡힙니다.
+    더 높은 심박이 한 번 찍히면 기준이 그만큼 올라가고 존도 다시 계산됩니다. 나이로 추정하지는 않습니다.</p>
+    <h3>트레드밀(러닝머신) 기록도 되나요?</h3>
+    <p>거리·시간이 파일에 있으면 페이스와 구간이 나옵니다. 좌표가 없어 지도와 3D 영상은 없고,
+    그 이유를 화면에 적어 둡니다 — 고장이 아니라 원래 없는 것이니까요.</p>
+    <h3>달리기와 자전거를 같이 하는데 숫자가 섞이지 않나요?</h3>
+    <p>거리·PR·주간 거리 판은 종목마다 따로 셉니다. 반대로 <b>잔디·연속 기록·XP·레벨은 종목을 가리지 않습니다</b> —
+    강도(MET)×시간으로 재기 때문에 달리기도 수영도 같은 잣대에 오릅니다.</p>
+  </div>
+
+  <div class="cta-box">
+    <b>오늘 달린 파일, 지금 열어 보세요</b>
+    <a class="btn hot" href="./app.html">러닝 파일 열기</a>
+  </div>
+
+  <p class="also">함께 보기 ·
+    <a href="./swim-swolf.html">수영 기록 분석 (SWOLF)</a> ·
+    <a href="./gpx-viewer.html">GPX 파일 보는 법</a> ·
+    <a href="./fit-viewer.html">.fit 파일 여는 법</a> ·
+    <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
+  </p>
+</article>
+
+</body>
+</html>
