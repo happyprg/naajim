@@ -49,7 +49,7 @@
 <header class="hero" id="top">
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.213.0</b> 오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게</span>
+    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.214.0</b> 오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게</span>
     <!-- 대문은 "무엇을 하는 도구인가"가 아니라 "누가 옆에 있는가"로 연다. 자전거는 대개 혼자
          타고, 나가기까지가 제일 어렵다 — 그 자리에 먼저 말을 걸어 주는 쪽이 있다는 게 이 앱의 자리다. -->
     <!-- 둘째 줄은 짧아야 한다 — 폰에서 h1이 다섯 줄로 접히면 읽기 전에 벽으로 보인다. -->
@@ -303,13 +303,16 @@
         <b>"오늘 빨라졌나"에 답합니다</b> — 최근 5회 평균과 나란히 놓아 <b>"6:00/km → 오늘 5:34, 26초 빨랐습니다"</b>처럼요. 같은 종목끼리만 견주고, <b>기록 3회가 모이기 전에는 말하지 않습니다</b>.<br><br>
         <b>🤖 AI 코치도 러닝 코치로 답합니다</b> — 지시가 파워 W가 아니라 <b>페이스·심박·spm</b>으로 옵니다.<br><br>
         러닝 계획은 <b>내 달리기 기록에서 배운 페이스</b>로 완주 시간과 쉴 자리를 잡습니다.<br><br>
-        <b>첫 달리기에는 화면이 먼저 말을 겁니다</b> — 무엇이 달라지고 무엇이 사라지는지(파워·TSS는 자전거 잣대라 뜨지 않습니다) 그 자리에서 알려 드립니다.</p></div>
+        <b>👟 러닝화가 몇 km 뛰었는지 세어 드립니다</b> — 500km쯤부터 무릎이 먼저 아는데, 정작 몇 km인지는 아무도 모릅니다. 등록해 두고 기록마다 고르면 알아서 쌓이고, 갈 때가 되면 알려 드립니다(기본 600km, 고칠 수 있습니다).<br><br>
+        <b>달리기만 하시면 화면이 달리기 화면이 됩니다</b> — 묻지 않고 보관함에서 알아냅니다. 잔디는 「달리기 잔디」가 되고, 자전거 카드는 물러나고, 달리기 카드가 맨 위로 옵니다.<br><br>
+        <b>첫 달리기에는 화면이 먼저 말을 겁니다</b> — 파워·TSS가 왜 안 보이는지 그 자리에서 알려 드립니다(자전거 잣대라 뜨지 않습니다).</p></div>
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M2 15c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><path d="M2 19c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/><circle cx="17" cy="6" r="2"/><path d="M6 12l5-3 4 2"/></svg></div>
         <h3>🏊 헤엄치는 사람에게</h3>
         <p><b>100m 페이스와 m 단위.</b> 1,500m를 "1.5km"로 적지 않고, 구간도 100m로 끊습니다 — 레인을 세던 그 숫자 그대로요.<br><br>
         <b>레인 수영도 들어옵니다.</b> 경로가 안 남는 기록은 다른 앱에서 흔히 버려지는데, 여기서는 <b>거리·시간·페이스가 그대로</b> 남습니다. 지도가 없는 이유도 화면에 적어 둡니다.<br><br>
         <b>획득 고도 같은 건 아예 안 보입니다</b> — 물에서 오른 고도는 GPS 튐이지 언덕이 아니니까요.<br><br>
         스트로크는 <b>spm</b>으로, 케이던스라고 부르지 않습니다.<br><br>
+        <b>🩱 수영복·수경은 물에 있던 시간으로 셉니다</b> — 늘어난 수영복을 삭힌 건 헤엄친 거리가 아니라 염소니까요. 같은 1.5km라도 40분 걸린 날과 25분 걸린 날은 닳은 정도가 다릅니다. 오리발·패들에는 <b>교체 주기를 아예 두지 않았습니다</b> — 거의 안 닳는데 숫자를 지어내면 멀쩡한 걸 사게 되니까요.<br><br>
         <b>첫 수영에는 화면이 먼저 말을 겁니다</b> — 지도와 영상이 없는 것은 고장이 아니라 <b>원래 없는 것</b>이라고요.</p></div>
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="17" r="3.5"/><circle cx="18.5" cy="17" r="3.5"/><path d="M5.5 17l4-9h5l-3 9M9 8h6"/></svg></div>
         <h3>🚴 타는 사람에게</h3>
@@ -674,7 +677,7 @@
       <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
     </div>
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.213.0</code> · 모든 분석은 내 기기 안에서.</span>
+      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.214.0</code> · 모든 분석은 내 기기 안에서.</span>
       <span><a class="mailme" data-show="1" href="#">문의 메일</a></span>
     </div>
   </div>
