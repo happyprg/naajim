@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://happyprg.github.io/naajim/</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-<url><loc>https://happyprg.github.io/naajim/app.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-<url><loc>https://happyprg.github.io/naajim/en.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://happyprg.github.io/naajim/fit-viewer.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://happyprg.github.io/naajim/fit-to-gpx.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://happyprg.github.io/naajim/gpx-viewer.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://happyprg.github.io/naajim/running-pace.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://happyprg.github.io/naajim/swim-swolf.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-<url><loc>https://happyprg.github.io/naajim/strava-alternative.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/</loc><lastmod>2026-08-21</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<url><loc>https://happyprg.github.io/naajim/app.html</loc><lastmod>2026-08-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://happyprg.github.io/naajim/en.html</loc><lastmod>2026-08-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://happyprg.github.io/naajim/fit-viewer.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/fit-to-gpx.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/gpx-viewer.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/running-pace.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/swim-swolf.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://happyprg.github.io/naajim/strava-alternative.html</loc><lastmod>2026-08-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
