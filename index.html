@@ -49,13 +49,16 @@
 <header class="hero" id="top">
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="eyebrow"><b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-right:6px;font-weight:900">v1.237.0</b> 오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게</span>
+    <!-- 사람에게 하는 말이 먼저, 버전은 뒤에. 예전에는 배지가 문장 **앞**에 있어서 이 페이지에서
+         가장 좋은 첫 문장보다 «v1.xxx.x»라는 숫자가 먼저 읽혔다 — 방문자에게 버전 번호는
+         아무 뜻이 없고, 첫 화면은 이 사이트에서 가장 비싼 자리다. -->
+    <span class="eyebrow">오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게 <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.238.0</b></span>
     <!-- 대문은 "무엇을 하는 도구인가"가 아니라 "누가 옆에 있는가"로 연다. 자전거는 대개 혼자
          타고, 나가기까지가 제일 어렵다 — 그 자리에 먼저 말을 걸어 주는 쪽이 있다는 게 이 앱의 자리다. -->
     <!-- 둘째 줄은 짧아야 한다 — 폰에서 h1이 다섯 줄로 접히면 읽기 전에 벽으로 보인다. -->
     <!-- 둘째 줄은 원래 "혼자 두지 않습니다"였는데, 주어가 없고 앱이 사용자를 돌본다는 투라
          무겁게 읽혔다(사용자 지적). 첫 줄이 "나가기가 제일 어렵다"라고 했으니 둘째 줄은
-         **그럼 뭘 해 주는지**를 바로 말한다 — 앱의 '라이딩 비서' 말투와도 같은 결이다. -->
+         **그럼 뭘 해 주는지**를 바로 말한다 — 앱의 '먼저 말을 걸어 주는 비서' 말투와도 같은 결이다. -->
     <!-- 이름을 바꾸면서 대문 첫 줄도 이름의 뜻으로 연다. PR을 갱신하겠다는 마음보다
          "어제의 나보다 나은 오늘"이 이 앱을 쓰는 이유이고, 그게 곧 이름이다.
          둘째 줄은 여전히 짧게 — 폰에서 h1이 다섯 줄로 접히면 읽기 전에 벽으로 보인다. -->
@@ -65,7 +68,7 @@
     class="n-s">FIT·GPX를 끌어다 놓으면 오늘 움직인 몇 시간이 이야기 한 장이 됩니다. 달리기도 수영도 그 종목 단위로, 가입 없이 3초.</span></p>
     <div class="cta">
       <a class="btn hot" href="./app.html" target="_blank" rel="noopener">무료로 분석하기</a>
-      <a class="btn" href="./app.html#demo" target="_blank" rel="noopener">데모 라이딩 보기</a>
+      <a class="btn" href="./app.html#demo" target="_blank" rel="noopener">데모 리포트 보기</a>
     </div>
     <div style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:6px 18px;border-radius:999px;background:rgba(240,166,58,0.08);border:1px solid rgba(240,166,58,0.25);font-size:13px;font-weight:700;color:var(--amber);">
       <span style="font-size:14px">⚡</span> 120,000+ 기록 분석 완료 · 라이딩·러닝·수영 · 서버 업로드 0Byte · 100% 기기 로컬 처리
@@ -77,8 +80,8 @@
       <p class="note"><i></i><span class="n-l">"후반에 왜 힘이 빠졌어?" — <b style="color:var(--amber)">AI 코치</b>가 내 숫자로 답하고 다음 액션까지 알려 줍니다</span><span class="n-s"><b style="color:var(--amber)">AI 코치</b>가 내 숫자로 답합니다</span></p>
       <p class="note"><i></i><span class="n-l"><b style="color:var(--amber)">달리기 · 수영</b>도 함께 담기되, 자전거 숫자에는 섞이지 않습니다 — 종목마다 따로 셉니다</span><span class="n-s"><b style="color:var(--amber)">달리기 · 수영</b>도 종목마다 따로 셉니다</span></p>
       <!-- n-l(넓은 화면)과 n-s(폰)는 **서로 겹치지 않게** 통째로 갈라 쓴다. 공용 <b>를 바깥에 두면
-           폰에서 n-l만 사라지고 <b>는 남아 "라이딩 비서친구를 계획에 부를…"처럼 문장이 뭉개진다. -->
-      <p class="note"><i></i><span class="n-l">잊을 만하면 <b style="color:var(--amber)">라이딩 비서</b>가 먼저 말을 걸고, <b style="color:var(--amber)">친구를 계획에 부를</b> 수도 있어요</span><span class="n-s"><b style="color:var(--amber)">라이딩 비서</b>가 먼저 말을 겁니다</span></p>
+           폰에서 n-l만 사라지고 <b>는 남아 "나의 비서친구를 계획에 부를…"처럼 문장이 뭉개진다. -->
+      <p class="note"><i></i><span class="n-l">잊을 만하면 <b style="color:var(--amber)">비서가 내 종목의 말로</b> 먼저 말을 걸고, <b style="color:var(--amber)">친구를 계획에 부를</b> 수도 있어요</span><span class="n-s"><b style="color:var(--amber)">나의 비서</b>가 먼저 말을 겁니다</span></p>
     </div>
 
     <div class="flow-steps">
@@ -210,7 +213,7 @@
       <!-- 알림·친구는 이 앱에서 제일 나중에 생긴 기능인데, 랜딩에 없으면 있는 줄도 모르고 지나간다.
            기능의 영리함("때를 안다")을 자랑하지 않는다 — 파는 것은 **혼자 타도 혼자가 아닌 느낌**이다. -->
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 4-2 5-2 5h16s-2-1-2-5a6 6 0 0 0-6-6z"/><path d="M10 20h4"/></svg></div>
-        <h3>🧭 먼저 말을 걸어 주는 비서</h3><p>자전거는 대개 혼자 탑니다. 그래서 <b>먼저 말을 거는 쪽</b>을 두었습니다 — "4주 연속이 오늘 끊깁니다", "내일 112km, 물 두 통이면 됩니다", "1년 전 오늘 그 길을 달리셨네요". 기록에서 <b>주로 타는 요일과 시간</b>을 읽어 토요일 아침 라이더에게는 <b>금요일 저녁</b>에 말을 겁니다. <b>AI 코치에 키를 넣으면 그 코치가 비서까지 맡아</b> 내 유형과 레벨에 맞춰 매번 새로 써요.</p></div>
+        <h3>🧭 먼저 말을 걸어 주는 비서</h3><p>타는 것도 달리는 것도 헤엄치는 것도 대개 혼자입니다. 그래서 <b>먼저 말을 거는 쪽</b>을 두었습니다 — "4주 연속이 오늘 끊깁니다", "내일 112km, 물 두 통이면 됩니다", "1년 전 오늘 그 길을 달리셨네요". 기록에서 <b>주로 타는 요일과 시간</b>을 읽어 토요일 아침 라이더에게는 <b>금요일 저녁</b>에 말을 겁니다. <b>AI 코치에 키를 넣으면 그 코치가 비서까지 맡아</b> 내 유형과 레벨에 맞춰 매번 새로 써요.</p></div>
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 11l-3 3-3-3"/><path d="M4 6h16v12H4z"/><path d="M8 3v3M16 3v3"/></svg></div>
         <h3>🤜 콕 찌르기 & 같이 타자</h3><p>6자 코드만 주고받으면 친구 폰에 <b>한 마디를 보낼 수 있습니다</b> — "요즘 안 보이시네요", "주말에 같이 갑시다". 라이딩 계획을 세우고 <b>친구 부르기</b>를 누르면 상대 폰에서 <b>그 계획서가 그대로 열려</b> 코스·쉴 자리·보급을 보고 GPX·FIT까지 받아 갑니다. <b>밤에는 가지 않고</b>, 같은 친구에게는 하루 한 번, 차단은 언제든지.</p></div>
       <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4z"/><path d="M9 20h6M12 16v4"/><path d="M8 10l2.5 2.5L16 7"/></svg></div>
@@ -657,7 +660,10 @@
 
 <section class="last">
   <div class="wrap">
-    <h2><span style="display:inline-block">다음 라이딩이 끝나면,</span><br><span style="display:inline-block">업로드 대신 그냥 끌어다 놓으세요</span></h2>
+    <!-- 마지막 문장은 **첫 문장으로 돌아온다** — 히어로 눈썹의 "오늘도 페달을 밟고 · 달리고 ·
+         헤엄친 당신에게"와 같은 말로 닫는다. 여기가 '다음 라이딩'이던 시절에는 페이지의 처음과
+         끝이 서로 다른 사람에게 말을 걸고 있었다(교훈 69번). -->
+    <h2><span style="display:inline-block">오늘 타고 · 달리고 · 헤엄친 뒤엔,</span><br><span style="display:inline-block">업로드 대신 그냥 끌어다 놓으세요</span></h2>
     <a class="btn hot" href="./app.html" target="_blank" rel="noopener">Naajim 무료로 시작하기</a>
   </div>
 </section>
@@ -676,7 +682,7 @@
       <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
     </div>
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.237.0</code> · 모든 분석은 내 기기 안에서.</span>
+      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.238.0</code> · 모든 분석은 내 기기 안에서.</span>
       <span><a class="mailme" data-show="1" href="#">문의 메일</a></span>
     </div>
   </div>
