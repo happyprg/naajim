@@ -40,7 +40,7 @@
            "Together" section, so the page's own table of contents never named them. Running gets a
            slot for the same reason — the rename to Naajim was made to hold it.
            On phones (≤640px) this row is hidden entirely, so the count only matters on desktop. -->
-      <a href="#story">🎬 3D video</a><a href="#coach">🤖 AI coach</a><a href="#social">🚴 Together</a><a href="#run">🏃 Run &amp; swim</a><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+      <a href="#story">🎬 3D video</a><a href="#coach">🤖 AI coach</a><a href="#preview">📊 The report</a><a href="#run">🏃 Run &amp; swim</a><a href="#social">🚴 Together</a><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
     </div>
     <a class="btn sm" href="./index.html?lang=ko" title="한국어" style="margin-right:8px">KO</a><a class="btn hot sm" href="./app.html" target="_blank" rel="noopener">Open App</a>
   </div>
@@ -50,7 +50,7 @@
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
     <!-- The human sentence first, the version after it — see the Korean landing for why. -->
-    <span class="eyebrow">For everyone who rode, ran or swam today <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.238.0</b></span>
+    <span class="eyebrow">For everyone who rode, ran or swam today <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.239.0</b></span>
     <!-- 영문 대문은 한국어판과 **다른 것을 먼저 말한다**. 한국에서는 "누가 옆에 있는가"가 강점이지만,
          영어권 자전거 커뮤니티는 지금 AI에 적대적이다(r/cycling "No AI content", r/gravelcycling은
          광고 금지 항목에 "vibe coded apps"를 적어 두었다). 거기서 데려온 사람이 첫 줄에서
@@ -190,45 +190,6 @@
   </div>
 </header>
 
-<section id="social">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="k">Together</div>
-      <!-- Saying "no accounts, no logins" about the whole app would contradict Pro's optional
-           Google device-linking. It is true of riding together, so scope it to that. -->
-      <h2>Riding together needs no account and no login</h2>
-      <p>Competition and company without ever asking you to sign up: trade a code or a link, that's it.
-      (The Google account link used to move between devices is an <b>optional</b> Pro feature, unrelated to this.)</p>
-    </div>
-    <div class="grid3">
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 4v7a5 5 0 0 0 10 0V4z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/><path d="M9 20h6M12 16v4"/></svg></div>
-        <h3>⚔️ Rival record</h3><p>Wins and losses against that one friend <b>keep stacking up</b>. "3–2, still ahead" is a reason to upload the next ride. Send the invite link and you both watch the same board.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><path d="M12 12v-3l3-3"/></svg></div>
-        <h3>👥 Squad cross-country</h3><p>Your club's kilometres <b>merge into one marker</b> rolling from Incheon to Busan, with a contribution ranking showing who pushed it how far. A team finish you can actually see coming.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M7 21h10"/></svg></div>
-        <h3>🥊 VS cards & invite bonus</h3><p>Share a five-ability head-to-head as a <b>VS card</b>, and when a friend joins from your link you both get extra free analyses this month. You can also battle your past self.</p></div>
-      <!-- This card and the 3D story video below are what the top menu points at (#coach).
-           Both are what only this app makes, yet they lived inside "Together" and never
-           appeared in the page's table of contents. -->
-      <div class="feat" id="coach"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"/></svg></div>
-        <h3>🤖 AI coach (your own key)</h3><p>Throw a .fit file at ChatGPT and it can't read it. Naajim <b>parses the file and computes the metrics</b>, then shapes them into the question a coach would actually ask. Paste it into the ChatGPT, Claude or Gemini you already use — or add <b>your own API key</b> for answers inside the app. The request goes from your browser to your provider; it never touches our server.</p></div>
-      <!-- 알림·친구는 이 앱에서 제일 나중에 생긴 기능인데, 랜딩에 없으면 있는 줄도 모르고 지나간다.
-           '먼저 말을 거는 쪽'이 아니라 '때를 아는 쪽'으로 쓴다(잔소리로 읽히면 안 된다). -->
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 4-2 5-2 5h16s-2-1-2-5a6 6 0 0 0-6-6z"/><path d="M10 20h4"/></svg></div>
-        <h3>🧭 An assistant that speaks first</h3><p>It never asks when to ping you — it <b>reads the day and hour you usually train</b> and follows that rhythm. Saturday-morning rider? It speaks up <b>Friday evening</b>. And only when there's something to say: a streak about to break, a goal or badge within reach, service due, a plan set for tomorrow. <b>Add a key to the AI coach and it writes these too</b>, tuned to your rider type and level.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 11l-3 3-3-3"/><path d="M4 6h16v12H4z"/><path d="M8 3v3M16 3v3"/></svg></div>
-        <h3>🤜 Nudges & ride invites</h3><p>Swap a 6-character code and you can <b>put a line on a friend's phone</b> — "haven't seen you out lately", "let's ride this weekend". Build a plan, tap <b>invite a friend</b>, and <b>the plan itself opens on their phone</b>: route, rest stops, supplies, GPX and FIT included. <b>Nothing arrives at night</b>, one nudge per friend per day, and blocking is one tap.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4z"/><path d="M9 20h6M12 16v4"/><path d="M8 10l2.5 2.5L16 7"/></svg></div>
-        <h3>🎬 3D story video</h3><p>Your route draws itself, then <b>stands up in 3D by elevation</b> — a vertical video with heart rate and speed flowing along the distance. When it's done, send it <b>straight to Instagram, KakaoTalk or LINE</b>. Rendered frame by frame on your device, never uploaded.</p></div>
-      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"/></svg></div>
-        <h3>🏆 Weekly ranking</h3><p>A board you can join alone, right now. It <b>resets to zero every Monday</b>, so starting late costs nothing, and even off the podium you see <b>what percentile you're in</b> and how many km separate you from the rider above. Pick an age group or gender and you get <b>a board among your peers</b> too.</p></div>
-    </div>
-    <p style="text-align:center;margin:22px 0 0;font-size:14px;color:var(--ink2)">
-      All a squad or board ever sees is <b>a display name and numbers like distance</b> — routes and ride records never leave your device.
-    </p>
-  </div>
-</section>
-
 <!-- The English page had no product screenshot at all, even though build-deploy has been
      shipping shot-report-en.png this whole time (nothing referenced it). Telling someone what a
      report looks like is not the same as showing them. -->
@@ -251,49 +212,6 @@
       style="width:100%;display:block;border:1px solid var(--edge);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.45)">
     <p style="text-align:center;margin:18px 0 0">
       <a class="btn hot" href="./app.html#demo" target="_blank" rel="noopener">Play with this demo yourself</a>
-    </p>
-  </div>
-</section>
-
-<!-- 라이딩 계획 — 이 제품이 '탄 뒤'만이 아니라 '가기 전'에도 쓸모 있다는 걸 대문에서 보여 준다.
-     기능을 나열하지 않는다: 라이더가 출발 전에 실제로 하는 질문 세 개에 화면으로 답한다. -->
-<section id="plan-sec">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="k">Before you go</div>
-      <h2>"Can I actually finish this route?" — answered in numbers</h2>
-      <p>Not against some average rider, but against <b>your own rides</b>. What time you'll be back, where you'll stop, how many bottles to carry — you know before you leave.</p>
-    </div>
-    <div class="plan-wrap">
-      <div class="plan-card" id="planCard" aria-label="Ride plan preview"></div>
-      <div class="plan-why">
-        <div class="pw">
-          <h3>🚦 It tells you first whether it's too much</h3>
-          <p>Measured against your longest ride, biggest climb and longest time in the saddle, it gives you <b>one of four verdicts</b>. If it's too much yet, it says how far to build up first — the most expensive failure is the one halfway out.</p>
-        </div>
-        <div class="pw">
-          <h3>🛋️ Not "rest at 68 km" but "rest at the store at 68 km"</h3>
-          <p>Each rest point comes with the store, water fountain or toilet <b>that is actually there</b>. Water isn't "bring four bottles" either — it's <b>"you can refill on route, so start with two"</b>.</p>
-        </div>
-        <div class="pw">
-          <h3>⌚ The plan goes onto your head unit</h3>
-          <p>Download it as GPX or a <b>Garmin course (FIT)</b> and your stops ride along as waypoints. No pulling your phone out mid-ride — the device shows "4.2 km to your next stop".</p>
-        </div>
-        <div class="pw">
-          <h3>🔗 One link for whoever's coming along</h3>
-          <p>Relaying "store at 80 km, lunch at 112 km" is the tedious part. Open the link and your friend sees <b>the same plan and downloads the same GPX/FIT</b>.</p>
-        </div>
-        <div class="pw">
-          <h3>🗺️ No course file needed</h3>
-          <p>Tap a couple of places on the map and the route follows <b>real cycling paths</b>. Tap a rest stop to route through it, and turn it into a round trip with one button.</p>
-        </div>
-      </div>
-    </div>
-    <p style="text-align:center;margin:22px 0 0;font-size:14px;color:var(--ink2)">
-      That plan is <b>actually computed from the demo ride</b> — and the rest stops on it are real ones riders added.
-    </p>
-    <p style="text-align:center;margin:14px 0 0">
-      <a class="btn hot" href="./app.html#demo" target="_blank" rel="noopener">Plan your own route</a>
     </p>
   </div>
 </section>
@@ -340,6 +258,91 @@
       🏊 <b>Swims come in too — pool and open water.</b> A pool swim records no route, so there's no map, and the screen says so: "missing" and "broken" look identical otherwise. Sports we don't handle yet (strength, rowing…) are <b>left out on import, and we tell you how many and why</b>.</p>
   </div>
 </section>
+
+<section id="social">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="k">Together</div>
+      <!-- Saying "no accounts, no logins" about the whole app would contradict Pro's optional
+           Google device-linking. It is true of riding together, so scope it to that. -->
+      <h2>Riding together needs no account and no login</h2>
+      <p>Competition and company without ever asking you to sign up: trade a code or a link, that's it.
+      (The Google account link used to move between devices is an <b>optional</b> Pro feature, unrelated to this.)</p>
+    </div>
+    <div class="grid3">
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M7 4v7a5 5 0 0 0 10 0V4z"/><path d="M7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/><path d="M9 20h6M12 16v4"/></svg></div>
+        <h3>⚔️ Rival record</h3><p>Wins and losses against that one friend <b>keep stacking up</b>. "3–2, still ahead" is a reason to upload the next ride. Send the invite link and you both watch the same board.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="12" r="2"/><path d="M12 12v-3l3-3"/></svg></div>
+        <h3>👥 Squad cross-country</h3><p>Your club's kilometres <b>merge into one marker</b> rolling from Incheon to Busan, with a contribution ranking showing who pushed it how far. A team finish you can actually see coming.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M7 21h10"/></svg></div>
+        <h3>🥊 VS cards & invite bonus</h3><p>Share a five-ability head-to-head as a <b>VS card</b>, and when a friend joins from your link you both get extra free analyses this month. You can also battle your past self.</p></div>
+      <!-- This card and the 3D story video below are what the top menu points at (#coach).
+           Both are what only this app makes, yet they lived inside "Together" and never
+           appeared in the page's table of contents. -->
+      <div class="feat" id="coach"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"/></svg></div>
+        <h3>🤖 AI coach (your own key)</h3><p>Throw a .fit file at ChatGPT and it can't read it. Naajim <b>parses the file and computes the metrics</b>, then shapes them into the question a coach would actually ask. Paste it into the ChatGPT, Claude or Gemini you already use — or add <b>your own API key</b> for answers inside the app. The request goes from your browser to your provider; it never touches our server.</p></div>
+      <!-- 알림·친구는 이 앱에서 제일 나중에 생긴 기능인데, 랜딩에 없으면 있는 줄도 모르고 지나간다.
+           '먼저 말을 거는 쪽'이 아니라 '때를 아는 쪽'으로 쓴다(잔소리로 읽히면 안 된다). -->
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 4-2 5-2 5h16s-2-1-2-5a6 6 0 0 0-6-6z"/><path d="M10 20h4"/></svg></div>
+        <h3>🧭 An assistant that speaks first</h3><p>It never asks when to ping you — it <b>reads the day and hour you usually train</b> and follows that rhythm. Saturday-morning rider? It speaks up <b>Friday evening</b>. And only when there's something to say: a streak about to break, a goal or badge within reach, service due, a plan set for tomorrow. <b>Add a key to the AI coach and it writes these too</b>, tuned to your rider type and level.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14 11l-3 3-3-3"/><path d="M4 6h16v12H4z"/><path d="M8 3v3M16 3v3"/></svg></div>
+        <h3>🤜 Nudges & ride invites</h3><p>Swap a 6-character code and you can <b>put a line on a friend's phone</b> — "haven't seen you out lately", "let's ride this weekend". Build a plan, tap <b>invite a friend</b>, and <b>the plan itself opens on their phone</b>: route, rest stops, supplies, GPX and FIT included. <b>Nothing arrives at night</b>, one nudge per friend per day, and blocking is one tap.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4z"/><path d="M9 20h6M12 16v4"/><path d="M8 10l2.5 2.5L16 7"/></svg></div>
+        <h3>🎬 3D story video</h3><p>Your route draws itself, then <b>stands up in 3D by elevation</b> — a vertical video with heart rate and speed flowing along the distance. When it's done, send it <b>straight to Instagram, KakaoTalk or LINE</b>. Rendered frame by frame on your device, never uploaded.</p></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M6 6H3v2a3 3 0 0 0 3 3M18 6h3v2a3 3 0 0 1-3 3"/></svg></div>
+        <h3>🏆 Weekly ranking</h3><p>A board you can join alone, right now. It <b>resets to zero every Monday</b>, so starting late costs nothing, and even off the podium you see <b>what percentile you're in</b> and how many km separate you from the rider above. Pick an age group or gender and you get <b>a board among your peers</b> too.</p></div>
+    </div>
+    <p style="text-align:center;margin:22px 0 0;font-size:14px;color:var(--ink2)">
+      All a squad or board ever sees is <b>a display name and numbers like distance</b> — routes and ride records never leave your device.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- 라이딩 계획 — 이 제품이 '탄 뒤'만이 아니라 '가기 전'에도 쓸모 있다는 걸 대문에서 보여 준다.
+     기능을 나열하지 않는다: 라이더가 출발 전에 실제로 하는 질문 세 개에 화면으로 답한다. -->
+<section id="plan-sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="k">Before you go</div>
+      <h2>"Can I actually finish this route?" — answered in numbers</h2>
+      <p>Not against some average rider, but against <b>your own rides</b>. What time you'll be back, where you'll stop, how many bottles to carry — you know before you leave.</p>
+    </div>
+    <div class="plan-wrap">
+      <div class="plan-card" id="planCard" aria-label="Ride plan preview"></div>
+      <div class="plan-why">
+        <div class="pw">
+          <h3>🚦 It tells you first whether it's too much</h3>
+          <p>Measured against your longest ride, biggest climb and longest time in the saddle, it gives you <b>one of four verdicts</b>. If it's too much yet, it says how far to build up first — the most expensive failure is the one halfway out.</p>
+        </div>
+        <div class="pw">
+          <h3>🛋️ Not "rest at 68 km" but "rest at the store at 68 km"</h3>
+          <p>Each rest point comes with the store, water fountain or toilet <b>that is actually there</b>. Water isn't "bring four bottles" either — it's <b>"you can refill on route, so start with two"</b>.</p>
+        </div>
+        <div class="pw">
+          <h3>⌚ The plan goes onto your head unit</h3>
+          <p>Download it as GPX or a <b>Garmin course (FIT)</b> and your stops ride along as waypoints. No pulling your phone out mid-ride — the device shows "4.2 km to your next stop".</p>
+        </div>
+        <div class="pw">
+          <h3>🔗 One link for whoever's coming along</h3>
+          <p>Relaying "store at 80 km, lunch at 112 km" is the tedious part. Open the link and your friend sees <b>the same plan and downloads the same GPX/FIT</b>.</p>
+        </div>
+        <div class="pw">
+          <h3>🗺️ No course file needed</h3>
+          <p>Tap a couple of places on the map and the route follows <b>real cycling paths</b>. Tap a rest stop to route through it, and turn it into a round trip with one button.</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin:22px 0 0;font-size:14px;color:var(--ink2)">
+      That plan is <b>actually computed from the demo ride</b> — and the rest stops on it are real ones riders added.
+    </p>
+    <p style="text-align:center;margin:14px 0 0">
+      <a class="btn hot" href="./app.html#demo" target="_blank" rel="noopener">Plan your own route</a>
+    </p>
+  </div>
+</section>
+
 
 <section id="features">
   <div class="wrap">
@@ -666,7 +669,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.238.0</code> · All analysis happens on your device.</span>
+    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.239.0</code> · All analysis happens on your device.</span>
     <span><a class="mailme" data-show="1" href="#">Contact</a></span>
   </div>
 </footer>
