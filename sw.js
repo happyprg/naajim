@@ -79,16 +79,45 @@ function snapshot(){
    뜨는지 모르며 받는 사람의 언어로 나온다. 번호는 절대 재배치하지 말 것(이미 큐에 든 것이
    다른 문장으로 바뀐다). 새 문구는 뒤에 추가만 한다. */
 const POKE = [
-  { ko: "오늘 한 바퀴 어때요?",            en: "Fancy a ride today?" },
+  { ko: "오늘 한 바퀴 어때요?",            en: "Fancy a session today?" },
   { ko: "요즘 안 보이시네요",              en: "Haven't seen you out lately" },
-  { ko: "주말에 같이 갑시다",              en: "Let's ride this weekend" },
+  { ko: "주말에 같이 갑시다",              en: "Let's go this weekend" },
   { ko: "제가 앞서갑니다 🏆",              en: "I'm pulling ahead 🏆" },
   { ko: "날씨 좋은데 나가시죠",            en: "Weather's perfect — let's go" },
   { ko: "이번 주 목표 잊지 않으셨죠?",     en: "Remember your goal this week?" },
   { ko: "한강 어때요?",                    en: "How about a river loop?" },
-  { ko: "장비만 닦고 계신 건 아니죠?",     en: "Not just polishing the bike, right?" }
+  { ko: "장비만 닦고 계신 건 아니죠?",     en: "Not just polishing the gear, right?" }
 ];
 const T = (lang, ko, en) => (lang === "en" ? en : ko);
+
+/* 종목의 말 — **판정은 하지 않는다.** 어느 종목을 하는 사람인지는 앱이 `homeSportK()`로
+   정해 스냅샷(`snap.sport`)에 적어 둔다. 여기서 한 번 더 세면 같은 보관함에서 앱과 알림이
+   서로 다른 종목을 부르게 된다(잣대는 한 곳, 60번). 값이 없거나 섞어 하는 사람이면 `""`이고
+   그때는 종목 중립으로 말한다 — 옛 앱이 적어 둔 스냅샷에도 이 칸이 없으므로 그 길로 온다.
+   ⚠️ 여기 문장이 자전거의 말이면 **러너의 잠금 화면에 그대로 뜬다.** 우리는 영영 못 보는
+   자리다(52번). 제목 앞의 이모지도 같다 — 여태 무조건 🚴였다. */
+const SPORT_W = {
+  /* `sub`는 **주격 조사까지 붙인 꼴**이다 — "라이딩이"는 되는데 "달리기이"는 말이 안 된다.
+     받침에 따라 이/가가 갈리므로 자리에서 이어 붙이지 않고 통째로 적어 둔다. */
+  //     제목 이모지  종목 이름   "…이/가"   "20분만 ~"  "이번 주 ~"   "…km ~"      영문 복수   거리를 m로
+  ride: { e:"🚴", ko:"라이딩", en:"ride",    sub:"라이딩이", v:"타도",   p:"타셨어요",   pf:"탔습니다",   n:"rides",    m:false },
+  run:  { e:"🏃", ko:"달리기", en:"run",     sub:"달리기가", v:"달려도", p:"달리셨어요", pf:"달렸습니다", n:"runs",     m:false },
+  swim: { e:"🏊", ko:"수영",   en:"swim",    sub:"수영이",   v:"해도",   p:"하셨어요",   pf:"했습니다",   n:"swims",    m:true  },
+  other:{ e:"🏅", ko:"운동",   en:"workout", sub:"운동이",   v:"해도",   p:"하셨어요",   pf:"했습니다",   n:"sessions", m:false }
+};
+/* ⚠️ 칸이 **없는 것**과 **비어 있는 것**은 다르다. 옛 앱이 적어 둔 스냅샷에는 이 칸이 아예
+   없는데(워커는 이미 뿌려진 옛 앱과 호환을 지킨다), 그걸 '섞어 함'으로 읽으면 여태 라이딩
+   문장을 받던 사람이 어느 날 갑자기 「운동」으로 불린다. 없으면 하던 대로 라이딩이고,
+   빈 문자열은 앱이 **일부러** 적은 '고루 섞어 한다'는 뜻이다. */
+function sportW(s){
+  const k = s && s.sport;
+  if (k === undefined || k === null) return SPORT_W.ride;
+  return SPORT_W[k] || SPORT_W.other;
+}
+// 그 종목의 단위로 적는다 — 수영 1,500m를 "2km"로 반올림하면 레인을 세던 사람의 숫자와 어긋난다
+const distW = (w, meters, lang) => w.m
+  ? `${Math.round(meters).toLocaleString(lang === "en" ? "en" : "ko")}m`
+  : `${Math.round(meters / 1000)}km`;
 // 알림을 누르면 어디로 갈지 — 계획 브리핑만 그 계획서로 가고 나머지는 앱 첫 화면이다
 const openFor = (s) => (s.kind === "plan" && s.plan && s.plan.id) ? `./app.html?plan=${s.plan.id}` : "./app.html";
 
@@ -115,7 +144,9 @@ async function inbox(){
 function friendMessage(it, lang){
   const who = it.frm || T(lang, "친구", "A friend");
   if (it.kind === "plan")
-    return { title: T(lang, `${who}님이 같이 타자고 합니다`, `${who} wants to ride with you`),
+    /* 두 사람 사이를 오가는 글은 **어느 한쪽의 종목도 따를 수 없다** — 보내는 쪽으로 쓰면
+       받는 쪽에서 틀리고, 받는 쪽으로 쓰면 고른 말과 도착한 말이 달라진다. 중립이 정답이다. */
+    return { title: T(lang, `${who}님이 같이 가자고 합니다`, `${who} wants to go with you`),
              body: T(lang, "계획서를 열어 코스·휴식·보급을 확인해 보세요.", "Open the plan to see the route, stops and supplies."),
              open: it.ref ? `./app.html?plan=${it.ref}` : "./app.html", tag: "ridelens-plan-" + (it.ref || "") };
   const line = POKE[it.tpl] || POKE[0];
@@ -133,13 +164,14 @@ function selfMessage(snap, list){
      (aiKind !== kind) 쓰지 않는다 — 지난주 문장이 이번 주에 뜨는 것이 제일 나쁘다. */
   if (s.ai && s.ai.title && s.aiKind === s.kind)
     return { title: s.ai.title, body: s.ai.body || "", open: openFor(s), tag: "ridelens-" + s.kind };
+  const w = sportW(s);
   if (s.kind === "streak" && s.streak && s.streak.n > 0)
     return { title: T(lang, `${s.streak.n}주 연속이 오늘 끊깁니다`, `Your ${s.streak.n}-week streak ends today`),
-             body: T(lang, "20분만 타도 이어집니다 — 기록은 자동으로 쌓입니다.", "Twenty minutes keeps it alive."),
+             body: T(lang, `20분만 ${w.v} 이어집니다 — 기록은 자동으로 쌓입니다.`, "Twenty minutes keeps it alive."),
              open: "./app.html", tag: "ridelens-streak" };
   if (s.kind === "goal" && s.goal && s.goal.left)
     return { title: T(lang, `${s.goal.label} — ${s.goal.left} 남았어요`, `${s.goal.label} — ${s.goal.left} to go`),
-             body: T(lang, "한 번이면 됩니다. 기간이 끝나기 전에 채워 보시죠.", "One ride should do it — before the period ends."),
+             body: T(lang, "한 번이면 됩니다. 기간이 끝나기 전에 채워 보시죠.", "One session should do it — before the period ends."),
              open: "./app.html", tag: "ridelens-goal" };
   if (s.kind === "quest" && s.quest && s.quest.left > 0)
     return { title: T(lang, `이번 주 퀘스트 — ${s.quest.left}${s.quest.unit || "km"} 남았습니다`, `Weekly quest — ${s.quest.left}${s.quest.unit || "km"} to go`),
@@ -155,42 +187,58 @@ function selfMessage(snap, list){
              body: s.badge.need || T(lang, "한 번만 더 타면 됩니다.", "One more ride to go."),
              open: "./app.html", tag: "ridelens-badge" };
   if (s.kind === "plan" && s.plan && s.plan.km)
-    return { title: T(lang, `내일 ${s.plan.km}km 라이딩`, `Tomorrow: ${s.plan.km} km`),
+    return { title: T(lang, `내일 ${s.plan.km}km ${w.ko}`, `Tomorrow: ${s.plan.km} km`),
              body: T(lang, `물 ${s.plan.water || 2}통 · 보급 ${s.plan.stops || 0}회 예정입니다.`,
                           `${s.plan.water || 2} bottles · ${s.plan.stops || 0} resupply stops.`),
              open: s.plan.id ? `./app.html?plan=${s.plan.id}` : "./app.html", tag: "ridelens-plan" };
-  if (s.kind === "care" && s.care && s.care.part)
+  if (s.kind === "care" && s.care && s.care.part){
+    /* ⚠️ 장비함에는 러닝화·수영 장비도 있고, **무엇으로 닳는지가 종목마다 다르다**
+       (자전거·러닝화는 km · 수영은 물에 있던 시간, 교훈 59번). 여기서 늘 "km 탔습니다"로
+       적으면 수영 장비의 80시간이 "80km"가 된다. 단위는 앱이 함께 적어 보낸다. */
+    const cw = SPORT_W[s.care.k] || w;
+    const u = s.care.hr ? T(lang, `${s.care.km}시간 물에 있었습니다`, `${s.care.km} h in the water`)
+                        : T(lang, `${s.care.km}km ${cw.pf}`, `${s.care.km} km`);
     return { title: T(lang, `${s.care.part} 관리할 때가 됐습니다`, `Time to service your ${s.care.part}`),
-             body: T(lang, `마지막 정비 후 ${s.care.km}km 탔습니다.`, `${s.care.km} km since the last service.`),
+             body: T(lang, `마지막 정비 후 ${u}.`, `${u} since the last service.`),
              open: "./app.html", tag: "ridelens-care" };
-  if (s.kind === "anniv" && s.anniv && s.anniv.km)
-    return { title: T(lang, `${s.anniv.years || 1}년 전 오늘, ${s.anniv.km}km`, `${s.anniv.years || 1} year ago today: ${s.anniv.km} km`),
-             body: s.anniv.name || T(lang, "그날의 기록이 보관함에 있습니다.", "That ride is still in your library."),
+  }
+  if (s.kind === "anniv" && s.anniv && (s.anniv.m || s.anniv.km)){
+    // 그날 한 운동의 종목으로 적는다 — 홈 종목이 아니다(수영 1,500m를 "1km"로 적지 않는다)
+    const aw = SPORT_W[s.anniv.k] || w;
+    const d = distW(aw, s.anniv.m != null ? s.anniv.m : s.anniv.km * 1000, lang);
+    return { title: T(lang, `${s.anniv.years || 1}년 전 오늘, ${d}`, `${s.anniv.years || 1} year ago today: ${d}`),
+             body: s.anniv.name || T(lang, "그날의 기록이 보관함에 있습니다.", "That one is still in your library."),
              open: "./app.html", tag: "ridelens-anniv" };
-  const m = weeklyMessage(list, lang);
+  }
+  const m = weeklyMessage(list, lang, w);
   return { title: m.title, body: m.body, open: "./app.html", tag: "ridelens-weekly" };
 }
 
-function weeklyMessage(list, lang){
+/* ⚠️ 이 넷이 **가장 자주 나가는 문장**이다(다른 후보가 없을 때 늘 이것이 뜬다). 여기가
+   자전거의 말이면 달리는 사람은 알림을 켜 놓은 내내 남의 이야기를 듣는다. `w`는 앱이
+   적어 준 종목이고(`snap.sport`), 스냅샷을 못 읽었으면 부르는 쪽에서 라이딩을 넘긴다. */
+function weeklyMessage(list, lang, w){
   const now = Date.now(), DAY = 86400000;
   const t = (ko, en) => (lang === "en" ? en : ko);
-  const km = (a) => Math.round(a.reduce((s, r) => s + (((r.stats || {}).distance) || 0), 0) / 1000);
+  w = w || SPORT_W.ride;
+  const sum = (a) => a.reduce((s, r) => s + (((r.stats || {}).distance) || 0), 0);
+  const d = (a) => distW(w, sum(a), lang);
   const inRange = (from, to) => list.filter(r => r.date >= now - from * DAY && r.date < now - to * DAY);
   const thisWeek = inRange(7, 0), lastWeek = inRange(14, 7);
   if (!list.length)
-    return { title: t("이번 주 라이딩, 기록해 두셨나요?", "Logged a ride this week?"),
+    return { title: t(`이번 주 ${w.ko}, 기록해 두셨나요?`, `Logged a ${w.en} this week?`),
              body: t("파일 하나만 넣으면 3초 뒤에 리포트가 나옵니다.", "Drop one file and the report is ready in 3 seconds.") };
   if (thisWeek.length)
-    return { title: t(`이번 주 ${km(thisWeek)}km · ${thisWeek.length}회 타셨어요`, `${km(thisWeek)} km over ${thisWeek.length} rides this week`),
-             body: lastWeek.length ? t(`지난주는 ${km(lastWeek)}km였습니다. 주간 랭킹도 확인해 보세요.`, `Last week was ${km(lastWeek)} km. Check the weekly ranking.`)
+    return { title: t(`이번 주 ${d(thisWeek)} · ${thisWeek.length}회 ${w.p}`, `${d(thisWeek)} over ${thisWeek.length} ${w.n} this week`),
+             body: lastWeek.length ? t(`지난주는 ${d(lastWeek)}였습니다. 주간 랭킹도 확인해 보세요.`, `Last week was ${d(lastWeek)}. Check the weekly ranking.`)
                                    : t("주간 랭킹은 월요일에 0으로 초기화됩니다.", "The weekly ranking resets on Monday.") };
   if (lastWeek.length)
-    return { title: t(`지난주엔 ${km(lastWeek)}km 타셨네요`, `You rode ${km(lastWeek)} km last week`),
+    return { title: t(`지난주엔 ${d(lastWeek)} ${w.p}`, `You did ${d(lastWeek)} last week`),
              body: t("이번 주는 아직 기록이 없습니다. 주말에 한 번 나가시죠.", "Nothing logged this week yet — how about the weekend?") };
   const last = list.slice().sort((a, b) => (b.date || 0) - (a.date || 0))[0];
   const days = Math.max(1, Math.round((now - (last.date || now)) / DAY));
-  return { title: t(`마지막 라이딩이 ${days}일 전이었어요`, `Your last ride was ${days} days ago`),
-           body: t("가볍게 한 바퀴 어떠세요. 기록은 그대로 기다리고 있습니다.", "How about an easy loop? Your records are waiting.") };
+  return { title: t(`마지막 ${w.sub} ${days}일 전이었어요`, `Your last ${w.en} was ${days} days ago`),
+           body: t("가볍게 한 번 어떠세요. 기록은 그대로 기다리고 있습니다.", "How about an easy one? Your records are waiting.") };
 }
 
 self.addEventListener("push", (e) => {
@@ -199,15 +247,19 @@ self.addEventListener("push", (e) => {
     try {
       const [items, snap] = await Promise.all([inbox(), snapshot()]);
       const lang = (snap && snap.lang) === "en" ? "en" : "ko";
+      const w = sportW(snap);
       // 친구가 보낸 것이 먼저다 — 사람이 부른 것을 잔소리 뒤에 세우지 않는다
       for (const it of items) {
         const m = friendMessage(it, lang);
-        await show(m); shown++;
+        await show(m, w); shown++;
       }
-      if (!shown) await show(selfMessage(snap, await rides()));
+      if (!shown) await show(selfMessage(snap, await rides()), w);
       shown = 1;
     } catch (err) { /* 아래에서 반드시 하나는 띄운다 */ }
-    if (!shown) await show({ title: "이번 주 라이딩, 기록해 두셨나요?", body: "파일 하나만 넣으면 3초 뒤에 리포트가 나옵니다.", open: "./app.html", tag: "ridelens-weekly" });
+    /* 마지막 보루 — 여기까지 왔다는 것은 스냅샷도 보관함도 못 읽었다는 뜻이라 종목을 알 길이
+       없다. 알림을 안 띄우면 권한이 회수되므로(userVisibleOnly) 반드시 하나는 띄우되,
+       **종목 중립으로** 적는다 — 모르면서 라이딩이라고 단정하지 않는다. */
+    if (!shown) await show({ title: "이번 주 운동, 기록해 두셨나요?", body: "파일 하나만 넣으면 3초 뒤에 리포트가 나옵니다.", open: "./app.html", tag: "ridelens-weekly" }, SPORT_W.other);
   })());
 });
 
@@ -219,10 +271,14 @@ function tally(kind){
 }
 const kindOf = (tag) => String(tag || "").replace(/^ridelens-?/, "").replace(/[^a-z]/g, "") || "other";
 
-function show(m){
+/* 제목 앞 한 글자 — 여태 무조건 🚴였다. 잠금 화면에서 제일 먼저 눈에 들어오는 자리인데,
+   달리기만 하는 사람의 폰에도 자전거가 떴다(52번: 밖으로 나가는 글은 우리가 못 보는 자리다).
+   **받는 사람의** 종목을 쓴다 — 친구가 보낸 것도 마찬가지다(폰을 보는 쪽이 그 사람이다).
+   스냅샷을 못 읽었으면 하던 대로 🚴다. */
+function show(m, w){
   const tag = m.tag || "ridelens";
   tally("notifs-" + kindOf(tag));
-  return self.registration.showNotification("🚴 " + m.title, {
+  return self.registration.showNotification(((w && w.e) || "🚴") + " " + m.title, {
     body: m.body, tag, renotify: false,
     icon: "./logo-icon.png", badge: "./logo-icon.png", data: { open: m.open || "./app.html", kind: kindOf(tag) }
   });
