@@ -25,7 +25,7 @@ self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
    보관함이 비어 있거나 못 읽어도 반드시 하나는 띄운다 — 알림을 안 띄우면 브라우저가
    '조용한 푸시'로 보고 권한을 회수한다(userVisibleOnly 계약). */
 const DB = "ridelens";
-const API = "https://naajim-api.hongsgo.workers.dev";
+const API = "https://ridelens-api.hongsgo.workers.dev";
 
 function rides(){
   return new Promise((res) => {
