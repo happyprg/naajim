@@ -50,7 +50,7 @@
   <canvas id="ridge" height="340" aria-hidden="true"></canvas>
   <div class="wrap">
     <!-- The human sentence first, the version after it — see the Korean landing for why. -->
-    <span class="eyebrow">For everyone who rode, ran or swam today <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.258.0</b></span>
+    <span class="eyebrow">For everyone who rode, ran or swam today <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.259.0</b></span>
     <!-- 영문 대문은 한국어판과 **다른 것을 먼저 말한다**. 한국에서는 "누가 옆에 있는가"가 강점이지만,
          영어권 자전거 커뮤니티는 지금 AI에 적대적이다(r/cycling "No AI content", r/gravelcycling은
          광고 금지 항목에 "vibe coded apps"를 적어 두었다). 거기서 데려온 사람이 첫 줄에서
@@ -681,7 +681,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.258.0</code> · All analysis happens on your device.</span>
+    <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.259.0</code> · All analysis happens on your device.</span>
     <span><a class="mailme" data-show="1" href="#">Contact</a></span>
   </div>
 </footer>
@@ -693,7 +693,10 @@
 <script>!function(){var e=document.getElementById("arChat");if(e){var t=matchMedia("(prefers-reduced-motion:reduce)").matches,n=[{q:"Why did I fade in the second half?",a:[["First half ",0],["68W",1],[" → second half ",0],["101W",1],[". You didn't fade — you held back early. Heart rate only moved 112 → 127bpm, so you finished with fuel left.",0]],act:"Next ride — open at <b>88W</b> for the first 10 minutes, warm up to <b>135bpm</b>"},{q:"Could I hold this pace for 100km?",a:[["Not at this intensity (NP ",0],["110W",1],[" · IF ",0],["1.08",1],["): you'd empty around 62km. A 100km day lives below IF ",0],["0.75",1],[".",0]],act:"Next long ride — cap it at NP <b>82W</b> · <b>135bpm</b> average, 5 min easy every 40km"},{q:"Am I overdoing it?",a:[["The opposite. Three rides in twelve weeks — the problem is the broken thread, and an average cadence of ",0],["56rpm",1],[" is loading your knees.",0]],act:"This week — <b>2 × 40km</b> at <b>85rpm</b>. Frequency before intensity"}],a=[],r=0,i=!1;return t?(i=!0,s(),void(i=!1)):"IntersectionObserver"in window?void new IntersectionObserver(function(e){for(var t=0;t<e.length;t++)e[t].isIntersecting?i||(i=!0,s()):i&&(i=!1,a.forEach(clearTimeout),a=[])},{threshold:.25}).observe(e):(i=!0,void s())}function o(e,n){a.push(setTimeout(n,t?0:e))}function c(t,n){var a=document.createElement("div");return a.className=t,null!=n&&(a.innerHTML=n),e.appendChild(a),requestAnimationFrame(function(){a.classList.add("on")}),a}function s(){if(i){a.forEach(clearTimeout),a=[],e.innerHTML="";var d=n[r%n.length];r++,c("ar-msg q",d.q),o(520,function(){var e=c("ar-think",'<span class="tr"><i></i></span>The coach is reading your ride…');o(1150,function(){e.remove();var n=c("ar-msg a","");if(t)return n.innerHTML=d.a.map(function(e){return e[1]?"<b>"+e[0]+"</b>":e[0]}).join(""),void c("ar-act","<b>Next actions</b> · "+d.act);!function(e,t,n){var r=document.createElement("span");r.className="ar-caret",e.appendChild(r);var i=0,o=0,c=null;!function s(){if(i>=t.length)return r.remove(),n&&n();c||(c=t[i][1]?document.createElement("b"):document.createElement("span"),e.insertBefore(c,r)),c.textContent+=t[i][0].charAt(o++),o>=t[i][0].length&&(i++,o=0,c=null),a.push(setTimeout(s,14))}()}(n,d.a,function(){o(220,function(){c("ar-act","<b>Next actions</b> · "+d.act)}),o(4200,s)})})})}}}();</script>
 
 <div id="stickyCta" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);z-index:99;background:rgba(18,22,32,0.94);border:1px solid rgba(240,166,58,0.4);border-radius:999px;padding:10px 22px;box-shadow:0 12px 36px rgba(0,0,0,0.6);backdrop-filter:blur(12px);display:flex;align-items:center;gap:16px;opacity:0;transition:transform 0.3s ease, opacity 0.3s ease;pointer-events:none;">
-  <span style="font-size:14px;font-weight:800;color:#fff;white-space:nowrap">🚴 Drop your .fit file for an instant report in 3 seconds</span>
+  <!-- On a 390px phone this bar stood 528px wide and both ends were clipped (2026-09-23) — keep it
+       inside the viewport and use a short line on narrow screens. -->
+  <style>#stickyCta{max-width:calc(100vw - 24px);box-sizing:border-box}#stickyCta .sc-s{display:none}#stickyCta>span{flex:0 0 auto}#stickyCta .sc-l,#stickyCta .sc-s{white-space:nowrap!important}@media (max-width:600px){#stickyCta{gap:10px!important;padding:8px 8px 8px 18px!important}#stickyCta .sc-l{display:none}#stickyCta .sc-s{display:inline}}</style>
+  <span style="font-size:14px;font-weight:800;color:#fff;white-space:nowrap"><span class="sc-l">🚴🏃🏊 Drop today's file — your report in 3 seconds</span><span class="sc-s">Your report in 3 sec</span></span>
   <a class="btn hot sm" href="./app.html" target="_blank" rel="noopener" style="margin:0;white-space:nowrap;padding:7px 16px;font-size:13.5px">Analyze Free</a>
 </div>
 <script>window.addEventListener("scroll",function(){var t=document.getElementById("stickyCta");t&&(window.scrollY>450?(t.style.opacity="1",t.style.transform="translateX(-50%) translateY(0)",t.style.pointerEvents="auto"):(t.style.opacity="0",t.style.transform="translateX(-50%) translateY(100px)",t.style.pointerEvents="none"))});</script>

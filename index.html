@@ -52,7 +52,7 @@
     <!-- 사람에게 하는 말이 먼저, 버전은 뒤에. 예전에는 배지가 문장 **앞**에 있어서 이 페이지에서
          가장 좋은 첫 문장보다 «v1.xxx.x»라는 숫자가 먼저 읽혔다 — 방문자에게 버전 번호는
          아무 뜻이 없고, 첫 화면은 이 사이트에서 가장 비싼 자리다. -->
-    <span class="eyebrow">오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게 <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.258.0</b></span>
+    <span class="eyebrow">오늘도 페달을 밟고 · 달리고 · 헤엄친 당신에게 <b style="background:var(--amber);color:#211502;padding:2px 8px;border-radius:999px;margin-left:6px;font-weight:900">v1.259.0</b></span>
     <!-- 대문은 "무엇을 하는 도구인가"가 아니라 "누가 옆에 있는가"로 연다. 자전거는 대개 혼자
          타고, 나가기까지가 제일 어렵다 — 그 자리에 먼저 말을 걸어 주는 쪽이 있다는 게 이 앱의 자리다. -->
     <!-- 둘째 줄은 짧아야 한다 — 폰에서 h1이 다섯 줄로 접히면 읽기 전에 벽으로 보인다. -->
@@ -697,7 +697,7 @@
       <a href="./strava-alternative.html">스트라바 없이 분석하기</a>
     </div>
     <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.258.0</code> · 모든 분석은 내 기기 안에서.</span>
+      <span>© 2026 WhiteMedia · Naajim <code style="background:rgba(240,166,58,.15);color:var(--amber);padding:2px 7px;border-radius:6px;font-size:12px;font-weight:700">v1.259.0</code> · 모든 분석은 내 기기 안에서.</span>
       <span><a class="mailme" data-show="1" href="#">문의 메일</a></span>
     </div>
   </div>
@@ -710,7 +710,10 @@
 <script>!function(){var e=document.getElementById("arChat");if(e){var n=matchMedia("(prefers-reduced-motion:reduce)").matches,t=[{q:"후반에 왜 힘이 빠졌어?",a:[["전반 ",0],["68W",1],[" → 후반 ",0],["101W",1],[". 힘이 빠진 게 아니라 초반을 너무 아꼈습니다. 심박도 112 → 127bpm까지만 올랐어요 — 여유를 남긴 채 끝났습니다.",0]],act:"다음 라이딩 — 첫 10분을 <b>88W</b>로 올려 시작, 심박 <b>135bpm</b>까지 데워 두기"},{q:"이 페이스로 100km 갈 수 있을까?",a:[["지금 강도(NP ",0],["110W",1],[" · IF ",0],["1.08",1],[")로는 62km 부근에서 바닥납니다. 100km는 IF ",0],["0.75",1],[" 아래에서 나와요.",0]],act:"다음 장거리 — NP <b>82W</b> · 평균심박 <b>135bpm</b>으로 묶고, 40km마다 5분 회복"},{q:"무리하고 있는 건 아닐까?",a:[["무리가 아니라 반대입니다. 최근 12주에 ",0],["3회",1],[" — 끊긴 연속성이 문제고, 평균 케이던스 ",0],["56rpm",1],["은 무릎에 부담을 줍니다.",0]],act:"이번 주 — <b>40km 2회</b>, 케이던스 <b>85rpm</b> 유지(강도보다 횟수 먼저)"}],r=[],a=0,i=!1;return n?(i=!0,m(),void(i=!1)):"IntersectionObserver"in window?void new IntersectionObserver(function(e){for(var n=0;n<e.length;n++)e[n].isIntersecting?i||(i=!0,m()):i&&(i=!1,r.forEach(clearTimeout),r=[])},{threshold:.25}).observe(e):(i=!0,void m())}function c(e,t){r.push(setTimeout(t,n?0:e))}function o(n,t){var r=document.createElement("div");return r.className=n,null!=t&&(r.innerHTML=t),e.appendChild(r),requestAnimationFrame(function(){r.classList.add("on")}),r}function m(){if(i){r.forEach(clearTimeout),r=[],e.innerHTML="";var u=t[a%t.length];a++,o("ar-msg q",u.q),c(520,function(){var e=o("ar-think",'<span class="tr"><i></i></span>코치가 내 기록을 읽는 중…');c(1150,function(){e.remove();var t=o("ar-msg a","");if(n)return t.innerHTML=u.a.map(function(e){return e[1]?"<b>"+e[0]+"</b>":e[0]}).join(""),void o("ar-act","<b>다음 액션</b> · "+u.act);!function(e,n,t){var a=document.createElement("span");a.className="ar-caret",e.appendChild(a);var i=0,c=0,o=null;!function m(){if(i>=n.length)return a.remove(),t&&t();o||(o=n[i][1]?document.createElement("b"):document.createElement("span"),e.insertBefore(o,a)),o.textContent+=n[i][0].charAt(c++),c>=n[i][0].length&&(i++,c=0,o=null),r.push(setTimeout(m,17))}()}(t,u.a,function(){c(220,function(){o("ar-act","<b>다음 액션</b> · "+u.act)}),c(4200,m)})})})}}}();</script>
 
 <div id="stickyCta" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);z-index:99;background:rgba(18,22,32,0.94);border:1px solid rgba(240,166,58,0.4);border-radius:999px;padding:10px 22px;box-shadow:0 12px 36px rgba(0,0,0,0.6);backdrop-filter:blur(12px);display:flex;align-items:center;gap:16px;opacity:0;transition:transform 0.3s ease, opacity 0.3s ease;pointer-events:none;">
-  <span style="font-size:14px;font-weight:800;color:#fff;white-space:nowrap">🚴 오늘 달린 FIT 파일을 놓으면 3초 만에 리포트 완성</span>
+  <!-- 폰(390px)에서 이 띠가 528px로 서서 **양 끝이 잘렸다** — 문장 앞과 «지금 무료 분석» 버튼이
+       화면 밖이었다(2026-09-23). 폭을 화면 안으로 묶고, 좁은 화면에서는 짧은 문장으로 바꾼다. -->
+  <style>#stickyCta{max-width:calc(100vw - 24px);box-sizing:border-box}#stickyCta .sc-s{display:none}#stickyCta>span{flex:0 0 auto}#stickyCta .sc-l,#stickyCta .sc-s{white-space:nowrap!important}@media (max-width:600px){#stickyCta{gap:10px!important;padding:8px 8px 8px 18px!important}#stickyCta .sc-l{display:none}#stickyCta .sc-s{display:inline}}</style>
+  <span style="font-size:14px;font-weight:800;color:#fff;white-space:nowrap"><span class="sc-l">🚴🏃🏊 오늘 파일을 놓으면 3초 만에 리포트 완성</span><span class="sc-s">3초 만에 내 리포트</span></span>
   <a class="btn hot sm" href="./app.html" target="_blank" rel="noopener" style="margin:0;white-space:nowrap;padding:7px 16px;font-size:13.5px">지금 무료 분석</a>
 </div>
 <script>window.addEventListener("scroll",function(){var t=document.getElementById("stickyCta");t&&(window.scrollY>450?(t.style.opacity="1",t.style.transform="translateX(-50%) translateY(0)",t.style.pointerEvents="auto"):(t.style.opacity="0",t.style.transform="translateX(-50%) translateY(100px)",t.style.pointerEvents="none"))});</script>
