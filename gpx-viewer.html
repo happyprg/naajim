@@ -30,7 +30,9 @@
 :root{--bg:#0b0d11;--panel:#12151c;--panel2:#171b24;--edge:#232a36;--ink:#e8ebf2;--ink2:#a7adba;--muted:#79808f;--amber:#f0a63a}
 @media(prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--panel2:#f1f3f7;--edge:#dfe3ea;--ink:#1a1d23;--ink2:#4a5060;--muted:#6b7280}}
 body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0}
-.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px}
+/* 한국어 낱말을 가운데서 자르지 않는다 — 폰에서 «라이/딩»·«나옵니/다»처럼 끊겨 읽혔다(2026-09-23).
+   대문(landing.html)은 이미 이 규칙이었고 안내 페이지만 빠져 있었다. */
+.guide{max-width:44em;margin:0 auto;padding:28px 20px 60px;word-break:keep-all;overflow-wrap:anywhere}
 .guide .crumb{font-size:13.5px;color:var(--muted);margin:0 0 18px}
 .guide .crumb a{color:var(--ink2)}
 .guide h1{font-size:clamp(25px,4.4vw,34px);line-height:1.25;letter-spacing:-.03em;margin:0 0 14px;text-wrap:balance}
@@ -117,7 +119,7 @@ body{background:var(--bg);color:var(--ink);font:16px/1.75 system-ui,-apple-syste
     넣어 보시면 업로드 요청이 없습니다. 배경 지도 타일만 지도 서버에서 받아옵니다.</p>
     <h3>고도가 이상하게 나옵니다</h3>
     <p>GPS 고도는 오차가 큽니다. 특히 기압계 없는 폰으로 기록한 파일은 획득고도가 부풀려집니다.
-    Naajim는 고도를 평활화해 계산하지만, 원본이 튀면 한계가 있습니다.</p>
+    Naajim은 고도를 평활화해 계산하지만, 원본이 튀면 한계가 있습니다.</p>
     <h3>여러 GPX를 겹쳐 볼 수 있나요?</h3>
     <p>보관함에 저장한 라이딩끼리는 겹쳐 비교할 수 있습니다(같은 코스의 이번·지난번 비교 등).</p>
     <h3>코스를 사이컴에 넣고 싶어요</h3>
